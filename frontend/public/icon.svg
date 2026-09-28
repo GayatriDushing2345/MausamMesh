@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- MAUSAMMESH FAVICON -->
+  <rect width="32" height="32" rx="8" fill="#15803D"/>
+  <path d="M 15 26 C 22 26, 26 21, 26 14 C 26 7, 20 6, 14 6 C 7 6, 6 12, 6 19 C 6 23, 10 26, 15 26 Z" stroke="#FAF9F5" stroke-width="2" stroke-linecap="round"/>
+  <path d="M 15 26 V 17" stroke="#FAF9F5" stroke-width="1.8" stroke-linecap="round"/>
+  <circle cx="16" cy="12" r="2" fill="#DCFCE7"/>
+</svg>

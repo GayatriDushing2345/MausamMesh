@@ -1,0 +1,777 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              73.75,
+              18.3
+            ],
+            [
+              74.2,
+              18.3
+            ],
+            [
+              74.2,
+              18.62
+            ],
+            [
+              73.75,
+              18.62
+            ],
+            [
+              73.75,
+              18.3
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "BLK_001",
+        "name": "Haveli Block Baseline (Maharashtra)",
+        "type": "block",
+        "block_baseline_rain_mm": 18.5,
+        "downscaled_rain_mm": 18.5,
+        "residual_delta_mm": 0.0,
+        "heavy_rain_prob_pct": 35.0,
+        "confidence_tier": "High",
+        "risk_level": "Moderate",
+        "elevation_m": 580.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              85.1,
+              25.48
+            ],
+            [
+              85.25,
+              25.48
+            ],
+            [
+              85.25,
+              25.6
+            ],
+            [
+              85.1,
+              25.6
+            ],
+            [
+              85.1,
+              25.48
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "BLK_002",
+        "name": "Sampatchak Block Baseline (Bihar)",
+        "type": "block",
+        "block_baseline_rain_mm": 22.0,
+        "downscaled_rain_mm": 22.0,
+        "residual_delta_mm": 0.0,
+        "heavy_rain_prob_pct": 45.0,
+        "confidence_tier": "High",
+        "risk_level": "Moderate",
+        "elevation_m": 51.833333333333336
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              73.9625,
+              18.5605
+            ],
+            [
+              73.9975,
+              18.5605
+            ],
+            [
+              73.9975,
+              18.5955
+            ],
+            [
+              73.9625,
+              18.5955
+            ],
+            [
+              73.9625,
+              18.5605
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "PANC_001",
+        "name": "Wagholi",
+        "type": "panchayat",
+        "parent_block_name": "Haveli",
+        "block_baseline_rain_mm": 18.5,
+        "downscaled_rain_mm": 18.5,
+        "residual_delta_mm": 0.0,
+        "heavy_rain_prob_pct": 0.0,
+        "confidence_tier": "High",
+        "risk_level": "Low",
+        "elevation_m": 590.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              73.9175,
+              18.4905
+            ],
+            [
+              73.9525,
+              18.4905
+            ],
+            [
+              73.9525,
+              18.5255
+            ],
+            [
+              73.9175,
+              18.5255
+            ],
+            [
+              73.9175,
+              18.4905
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "PANC_002",
+        "name": "Hadapsar Rural",
+        "type": "panchayat",
+        "parent_block_name": "Haveli",
+        "block_baseline_rain_mm": 18.5,
+        "downscaled_rain_mm": 18.5,
+        "residual_delta_mm": 0.0,
+        "heavy_rain_prob_pct": 0.0,
+        "confidence_tier": "High",
+        "risk_level": "Low",
+        "elevation_m": 560.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              73.9605,
+              18.5075
+            ],
+            [
+              73.9955,
+              18.5075
+            ],
+            [
+              73.9955,
+              18.5425
+            ],
+            [
+              73.9605,
+              18.5425
+            ],
+            [
+              73.9605,
+              18.5075
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "PANC_003",
+        "name": "Manjari Khurd",
+        "type": "panchayat",
+        "parent_block_name": "Haveli",
+        "block_baseline_rain_mm": 18.5,
+        "downscaled_rain_mm": 18.5,
+        "residual_delta_mm": 0.0,
+        "heavy_rain_prob_pct": 0.0,
+        "confidence_tier": "High",
+        "risk_level": "Low",
+        "elevation_m": 552.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              73.9425,
+              18.4545
+            ],
+            [
+              73.9775,
+              18.4545
+            ],
+            [
+              73.9775,
+              18.4895
+            ],
+            [
+              73.9425,
+              18.4895
+            ],
+            [
+              73.9425,
+              18.4545
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "PANC_004",
+        "name": "Phursungi",
+        "type": "panchayat",
+        "parent_block_name": "Haveli",
+        "block_baseline_rain_mm": 18.5,
+        "downscaled_rain_mm": 18.5,
+        "residual_delta_mm": 0.0,
+        "heavy_rain_prob_pct": 0.0,
+        "confidence_tier": "High",
+        "risk_level": "Low",
+        "elevation_m": 575.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              74.0025,
+              18.4675
+            ],
+            [
+              74.0375,
+              18.4675
+            ],
+            [
+              74.0375,
+              18.5025
+            ],
+            [
+              74.0025,
+              18.5025
+            ],
+            [
+              74.0025,
+              18.4675
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "PANC_005",
+        "name": "Loni Kalbhor",
+        "type": "panchayat",
+        "parent_block_name": "Haveli",
+        "block_baseline_rain_mm": 18.5,
+        "downscaled_rain_mm": 18.5,
+        "residual_delta_mm": 0.0,
+        "heavy_rain_prob_pct": 0.0,
+        "confidence_tier": "High",
+        "risk_level": "Low",
+        "elevation_m": 548.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              74.1175,
+              18.4705
+            ],
+            [
+              74.1525,
+              18.4705
+            ],
+            [
+              74.1525,
+              18.5055
+            ],
+            [
+              74.1175,
+              18.5055
+            ],
+            [
+              74.1175,
+              18.4705
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "PANC_006",
+        "name": "Uruli Kanchan",
+        "type": "panchayat",
+        "parent_block_name": "Haveli",
+        "block_baseline_rain_mm": 18.5,
+        "downscaled_rain_mm": 18.5,
+        "residual_delta_mm": 0.0,
+        "heavy_rain_prob_pct": 0.0,
+        "confidence_tier": "High",
+        "risk_level": "Low",
+        "elevation_m": 540.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              73.8325,
+              18.3275
+            ],
+            [
+              73.8675,
+              18.3275
+            ],
+            [
+              73.8675,
+              18.3625
+            ],
+            [
+              73.8325,
+              18.3625
+            ],
+            [
+              73.8325,
+              18.3275
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "PANC_007",
+        "name": "Khed Shivapur",
+        "type": "panchayat",
+        "parent_block_name": "Haveli",
+        "block_baseline_rain_mm": 18.5,
+        "downscaled_rain_mm": 18.5,
+        "residual_delta_mm": 0.0,
+        "heavy_rain_prob_pct": 0.0,
+        "confidence_tier": "High",
+        "risk_level": "Low",
+        "elevation_m": 645.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              73.8725,
+              18.4375
+            ],
+            [
+              73.9075,
+              18.4375
+            ],
+            [
+              73.9075,
+              18.4725
+            ],
+            [
+              73.8725,
+              18.4725
+            ],
+            [
+              73.8725,
+              18.4375
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "PANC_008",
+        "name": "Kondhwa Budruk",
+        "type": "panchayat",
+        "parent_block_name": "Haveli",
+        "block_baseline_rain_mm": 18.5,
+        "downscaled_rain_mm": 18.5,
+        "residual_delta_mm": 0.0,
+        "heavy_rain_prob_pct": 0.0,
+        "confidence_tier": "High",
+        "risk_level": "Low",
+        "elevation_m": 610.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              73.7975,
+              18.4245
+            ],
+            [
+              73.8325,
+              18.4245
+            ],
+            [
+              73.8325,
+              18.4595
+            ],
+            [
+              73.7975,
+              18.4595
+            ],
+            [
+              73.7975,
+              18.4245
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "PANC_009",
+        "name": "Dhayari",
+        "type": "panchayat",
+        "parent_block_name": "Haveli",
+        "block_baseline_rain_mm": 18.5,
+        "downscaled_rain_mm": 18.5,
+        "residual_delta_mm": 0.0,
+        "heavy_rain_prob_pct": 0.0,
+        "confidence_tier": "High",
+        "risk_level": "Low",
+        "elevation_m": 620.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              73.7805,
+              18.4405
+            ],
+            [
+              73.8155,
+              18.4405
+            ],
+            [
+              73.8155,
+              18.4755
+            ],
+            [
+              73.7805,
+              18.4755
+            ],
+            [
+              73.7805,
+              18.4405
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "PANC_010",
+        "name": "Nanded Gramin",
+        "type": "panchayat",
+        "parent_block_name": "Haveli",
+        "block_baseline_rain_mm": 18.5,
+        "downscaled_rain_mm": 18.5,
+        "residual_delta_mm": 0.0,
+        "heavy_rain_prob_pct": 0.0,
+        "confidence_tier": "High",
+        "risk_level": "Low",
+        "elevation_m": 565.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              85.1625,
+              25.5325
+            ],
+            [
+              85.1975,
+              25.5325
+            ],
+            [
+              85.1975,
+              25.5675
+            ],
+            [
+              85.1625,
+              25.5675
+            ],
+            [
+              85.1625,
+              25.5325
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "PANC_101",
+        "name": "Sampatchak Gramin",
+        "type": "panchayat",
+        "parent_block_name": "Sampatchak",
+        "block_baseline_rain_mm": 22.0,
+        "downscaled_rain_mm": 22.0,
+        "residual_delta_mm": 0.0,
+        "heavy_rain_prob_pct": 0.0,
+        "confidence_tier": "High",
+        "risk_level": "Low",
+        "elevation_m": 53.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              85.1775,
+              25.5475
+            ],
+            [
+              85.2125,
+              25.5475
+            ],
+            [
+              85.2125,
+              25.5825
+            ],
+            [
+              85.1775,
+              25.5825
+            ],
+            [
+              85.1775,
+              25.5475
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "PANC_102",
+        "name": "Bairiya",
+        "type": "panchayat",
+        "parent_block_name": "Sampatchak",
+        "block_baseline_rain_mm": 22.0,
+        "downscaled_rain_mm": 22.0,
+        "residual_delta_mm": 0.0,
+        "heavy_rain_prob_pct": 0.0,
+        "confidence_tier": "High",
+        "risk_level": "Low",
+        "elevation_m": 51.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              85.1475,
+              25.5175
+            ],
+            [
+              85.1825,
+              25.5175
+            ],
+            [
+              85.1825,
+              25.5525
+            ],
+            [
+              85.1475,
+              25.5525
+            ],
+            [
+              85.1475,
+              25.5175
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "PANC_103",
+        "name": "Kanhauli",
+        "type": "panchayat",
+        "parent_block_name": "Sampatchak",
+        "block_baseline_rain_mm": 22.0,
+        "downscaled_rain_mm": 22.0,
+        "residual_delta_mm": 0.0,
+        "heavy_rain_prob_pct": 0.0,
+        "confidence_tier": "High",
+        "risk_level": "Low",
+        "elevation_m": 54.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              85.1925,
+              25.5245
+            ],
+            [
+              85.2275,
+              25.5245
+            ],
+            [
+              85.2275,
+              25.5595
+            ],
+            [
+              85.1925,
+              25.5595
+            ],
+            [
+              85.1925,
+              25.5245
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "PANC_104",
+        "name": "Chipura",
+        "type": "panchayat",
+        "parent_block_name": "Sampatchak",
+        "block_baseline_rain_mm": 22.0,
+        "downscaled_rain_mm": 22.0,
+        "residual_delta_mm": 0.0,
+        "heavy_rain_prob_pct": 0.0,
+        "confidence_tier": "High",
+        "risk_level": "Low",
+        "elevation_m": 50.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              85.1675,
+              25.5025
+            ],
+            [
+              85.2025,
+              25.5025
+            ],
+            [
+              85.2025,
+              25.5375
+            ],
+            [
+              85.1675,
+              25.5375
+            ],
+            [
+              85.1675,
+              25.5025
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "PANC_105",
+        "name": "Sonagopalpur",
+        "type": "panchayat",
+        "parent_block_name": "Sampatchak",
+        "block_baseline_rain_mm": 22.0,
+        "downscaled_rain_mm": 22.0,
+        "residual_delta_mm": 0.0,
+        "heavy_rain_prob_pct": 0.0,
+        "confidence_tier": "High",
+        "risk_level": "Low",
+        "elevation_m": 52.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              85.1425,
+              25.5575
+            ],
+            [
+              85.1775,
+              25.5575
+            ],
+            [
+              85.1775,
+              25.5925
+            ],
+            [
+              85.1425,
+              25.5925
+            ],
+            [
+              85.1425,
+              25.5575
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "PANC_106",
+        "name": "Tarangpur",
+        "type": "panchayat",
+        "parent_block_name": "Sampatchak",
+        "block_baseline_rain_mm": 22.0,
+        "downscaled_rain_mm": 22.0,
+        "residual_delta_mm": 0.0,
+        "heavy_rain_prob_pct": 0.0,
+        "confidence_tier": "High",
+        "risk_level": "Low",
+        "elevation_m": 49.5
+      }
+    }
+  ]
+}

@@ -1,0 +1,469 @@
+{
+  "country": "India",
+  "states": [
+    {
+      "id": "STATE_27",
+      "name": "Maharashtra",
+      "code": "MH-27",
+      "districts": [
+        {
+          "id": "DIST_001",
+          "name": "Pune",
+          "code": "MH-PN",
+          "state": "Maharashtra",
+          "blocks": [
+            {
+              "id": "BLK_001",
+              "name": "Haveli",
+              "code": "MH-PN-HAV",
+              "mean_elevation_m": 580.5,
+              "panchayats": [
+                {
+                  "id": "PANC_001",
+                  "name": "Wagholi",
+                  "code": "MH-PN-HAV-WAG",
+                  "elevation_m": 590.0,
+                  "elevation_delta_m": 9.5,
+                  "slope_deg": 4.2,
+                  "aspect": "East",
+                  "area_sqkm": 14.5,
+                  "centroid_lat": 18.578,
+                  "centroid_lon": 73.98
+                },
+                {
+                  "id": "PANC_002",
+                  "name": "Hadapsar Rural",
+                  "code": "MH-PN-HAV-HAD",
+                  "elevation_m": 560.0,
+                  "elevation_delta_m": -20.5,
+                  "slope_deg": 2.1,
+                  "aspect": "North",
+                  "area_sqkm": 12.0,
+                  "centroid_lat": 18.508,
+                  "centroid_lon": 73.935
+                },
+                {
+                  "id": "PANC_003",
+                  "name": "Manjari Khurd",
+                  "code": "MH-PN-HAV-MAN",
+                  "elevation_m": 552.0,
+                  "elevation_delta_m": -28.5,
+                  "slope_deg": 1.8,
+                  "aspect": "East",
+                  "area_sqkm": 10.8,
+                  "centroid_lat": 18.525,
+                  "centroid_lon": 73.978
+                },
+                {
+                  "id": "PANC_004",
+                  "name": "Phursungi",
+                  "code": "MH-PN-HAV-PHU",
+                  "elevation_m": 575.0,
+                  "elevation_delta_m": -5.5,
+                  "slope_deg": 3.5,
+                  "aspect": "South",
+                  "area_sqkm": 15.2,
+                  "centroid_lat": 18.472,
+                  "centroid_lon": 73.96
+                },
+                {
+                  "id": "PANC_005",
+                  "name": "Loni Kalbhor",
+                  "code": "MH-PN-HAV-LON",
+                  "elevation_m": 548.0,
+                  "elevation_delta_m": -32.5,
+                  "slope_deg": 1.5,
+                  "aspect": "East",
+                  "area_sqkm": 18.0,
+                  "centroid_lat": 18.485,
+                  "centroid_lon": 74.02
+                },
+                {
+                  "id": "PANC_006",
+                  "name": "Uruli Kanchan",
+                  "code": "MH-PN-HAV-URU",
+                  "elevation_m": 540.0,
+                  "elevation_delta_m": -40.5,
+                  "slope_deg": 1.2,
+                  "aspect": "North-East",
+                  "area_sqkm": 22.4,
+                  "centroid_lat": 18.488,
+                  "centroid_lon": 74.135
+                },
+                {
+                  "id": "PANC_007",
+                  "name": "Khed Shivapur",
+                  "code": "MH-PN-HAV-KHE",
+                  "elevation_m": 645.0,
+                  "elevation_delta_m": 64.5,
+                  "slope_deg": 8.5,
+                  "aspect": "South-West",
+                  "area_sqkm": 16.8,
+                  "centroid_lat": 18.345,
+                  "centroid_lon": 73.85
+                },
+                {
+                  "id": "PANC_008",
+                  "name": "Kondhwa Budruk",
+                  "code": "MH-PN-HAV-KON",
+                  "elevation_m": 610.0,
+                  "elevation_delta_m": 29.5,
+                  "slope_deg": 6.1,
+                  "aspect": "South-West",
+                  "area_sqkm": 11.2,
+                  "centroid_lat": 18.455,
+                  "centroid_lon": 73.89
+                },
+                {
+                  "id": "PANC_009",
+                  "name": "Dhayari",
+                  "code": "MH-PN-HAV-DHA",
+                  "elevation_m": 620.0,
+                  "elevation_delta_m": 39.5,
+                  "slope_deg": 7.0,
+                  "aspect": "West",
+                  "area_sqkm": 9.5,
+                  "centroid_lat": 18.442,
+                  "centroid_lon": 73.815
+                },
+                {
+                  "id": "PANC_010",
+                  "name": "Nanded Gramin",
+                  "code": "MH-PN-HAV-NAN",
+                  "elevation_m": 565.0,
+                  "elevation_delta_m": -15.5,
+                  "slope_deg": 2.8,
+                  "aspect": "North",
+                  "area_sqkm": 8.4,
+                  "centroid_lat": 18.458,
+                  "centroid_lon": 73.798
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "STATE_10",
+      "name": "Bihar",
+      "code": "BR-10",
+      "districts": [
+        {
+          "id": "DIST_002",
+          "name": "Patna",
+          "code": "BR-PT",
+          "state": "Bihar",
+          "blocks": [
+            {
+              "id": "BLK_002",
+              "name": "Sampatchak",
+              "code": "BR-PT-SAM",
+              "mean_elevation_m": 51.833333333333336,
+              "panchayats": [
+                {
+                  "id": "PANC_101",
+                  "name": "Sampatchak Gramin",
+                  "code": "BR-PT-SAM-SAM",
+                  "elevation_m": 53.0,
+                  "elevation_delta_m": 1.2,
+                  "slope_deg": 0.8,
+                  "aspect": "North",
+                  "area_sqkm": 9.2,
+                  "centroid_lat": 25.55,
+                  "centroid_lon": 85.18
+                },
+                {
+                  "id": "PANC_102",
+                  "name": "Bairiya",
+                  "code": "BR-PT-SAM-BAI",
+                  "elevation_m": 51.5,
+                  "elevation_delta_m": -0.3,
+                  "slope_deg": 0.5,
+                  "aspect": "East",
+                  "area_sqkm": 7.8,
+                  "centroid_lat": 25.565,
+                  "centroid_lon": 85.195
+                },
+                {
+                  "id": "PANC_103",
+                  "name": "Kanhauli",
+                  "code": "BR-PT-SAM-KAN",
+                  "elevation_m": 54.2,
+                  "elevation_delta_m": 2.4,
+                  "slope_deg": 1.1,
+                  "aspect": "South",
+                  "area_sqkm": 8.5,
+                  "centroid_lat": 25.535,
+                  "centroid_lon": 85.165
+                },
+                {
+                  "id": "PANC_104",
+                  "name": "Chipura",
+                  "code": "BR-PT-SAM-CHI",
+                  "elevation_m": 50.8,
+                  "elevation_delta_m": -1.0,
+                  "slope_deg": 0.4,
+                  "aspect": "North-East",
+                  "area_sqkm": 6.9,
+                  "centroid_lat": 25.542,
+                  "centroid_lon": 85.21
+                },
+                {
+                  "id": "PANC_105",
+                  "name": "Sonagopalpur",
+                  "code": "BR-PT-SAM-SON",
+                  "elevation_m": 52.0,
+                  "elevation_delta_m": 0.2,
+                  "slope_deg": 0.6,
+                  "aspect": "East",
+                  "area_sqkm": 11.0,
+                  "centroid_lat": 25.52,
+                  "centroid_lon": 85.185
+                },
+                {
+                  "id": "PANC_106",
+                  "name": "Tarangpur",
+                  "code": "BR-PT-SAM-TAR",
+                  "elevation_m": 49.5,
+                  "elevation_delta_m": -2.3,
+                  "slope_deg": 0.3,
+                  "aspect": "North",
+                  "area_sqkm": 10.4,
+                  "centroid_lat": 25.575,
+                  "centroid_lon": 85.16
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "districts": [
+    {
+      "id": "DIST_001",
+      "name": "Pune",
+      "code": "MH-PN",
+      "state": "Maharashtra",
+      "blocks": [
+        {
+          "id": "BLK_001",
+          "name": "Haveli",
+          "code": "MH-PN-HAV",
+          "mean_elevation_m": 580.5,
+          "panchayats": [
+            {
+              "id": "PANC_001",
+              "name": "Wagholi",
+              "code": "MH-PN-HAV-WAG",
+              "elevation_m": 590.0,
+              "elevation_delta_m": 9.5,
+              "slope_deg": 4.2,
+              "aspect": "East",
+              "area_sqkm": 14.5,
+              "centroid_lat": 18.578,
+              "centroid_lon": 73.98
+            },
+            {
+              "id": "PANC_002",
+              "name": "Hadapsar Rural",
+              "code": "MH-PN-HAV-HAD",
+              "elevation_m": 560.0,
+              "elevation_delta_m": -20.5,
+              "slope_deg": 2.1,
+              "aspect": "North",
+              "area_sqkm": 12.0,
+              "centroid_lat": 18.508,
+              "centroid_lon": 73.935
+            },
+            {
+              "id": "PANC_003",
+              "name": "Manjari Khurd",
+              "code": "MH-PN-HAV-MAN",
+              "elevation_m": 552.0,
+              "elevation_delta_m": -28.5,
+              "slope_deg": 1.8,
+              "aspect": "East",
+              "area_sqkm": 10.8,
+              "centroid_lat": 18.525,
+              "centroid_lon": 73.978
+            },
+            {
+              "id": "PANC_004",
+              "name": "Phursungi",
+              "code": "MH-PN-HAV-PHU",
+              "elevation_m": 575.0,
+              "elevation_delta_m": -5.5,
+              "slope_deg": 3.5,
+              "aspect": "South",
+              "area_sqkm": 15.2,
+              "centroid_lat": 18.472,
+              "centroid_lon": 73.96
+            },
+            {
+              "id": "PANC_005",
+              "name": "Loni Kalbhor",
+              "code": "MH-PN-HAV-LON",
+              "elevation_m": 548.0,
+              "elevation_delta_m": -32.5,
+              "slope_deg": 1.5,
+              "aspect": "East",
+              "area_sqkm": 18.0,
+              "centroid_lat": 18.485,
+              "centroid_lon": 74.02
+            },
+            {
+              "id": "PANC_006",
+              "name": "Uruli Kanchan",
+              "code": "MH-PN-HAV-URU",
+              "elevation_m": 540.0,
+              "elevation_delta_m": -40.5,
+              "slope_deg": 1.2,
+              "aspect": "North-East",
+              "area_sqkm": 22.4,
+              "centroid_lat": 18.488,
+              "centroid_lon": 74.135
+            },
+            {
+              "id": "PANC_007",
+              "name": "Khed Shivapur",
+              "code": "MH-PN-HAV-KHE",
+              "elevation_m": 645.0,
+              "elevation_delta_m": 64.5,
+              "slope_deg": 8.5,
+              "aspect": "South-West",
+              "area_sqkm": 16.8,
+              "centroid_lat": 18.345,
+              "centroid_lon": 73.85
+            },
+            {
+              "id": "PANC_008",
+              "name": "Kondhwa Budruk",
+              "code": "MH-PN-HAV-KON",
+              "elevation_m": 610.0,
+              "elevation_delta_m": 29.5,
+              "slope_deg": 6.1,
+              "aspect": "South-West",
+              "area_sqkm": 11.2,
+              "centroid_lat": 18.455,
+              "centroid_lon": 73.89
+            },
+            {
+              "id": "PANC_009",
+              "name": "Dhayari",
+              "code": "MH-PN-HAV-DHA",
+              "elevation_m": 620.0,
+              "elevation_delta_m": 39.5,
+              "slope_deg": 7.0,
+              "aspect": "West",
+              "area_sqkm": 9.5,
+              "centroid_lat": 18.442,
+              "centroid_lon": 73.815
+            },
+            {
+              "id": "PANC_010",
+              "name": "Nanded Gramin",
+              "code": "MH-PN-HAV-NAN",
+              "elevation_m": 565.0,
+              "elevation_delta_m": -15.5,
+              "slope_deg": 2.8,
+              "aspect": "North",
+              "area_sqkm": 8.4,
+              "centroid_lat": 18.458,
+              "centroid_lon": 73.798
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DIST_002",
+      "name": "Patna",
+      "code": "BR-PT",
+      "state": "Bihar",
+      "blocks": [
+        {
+          "id": "BLK_002",
+          "name": "Sampatchak",
+          "code": "BR-PT-SAM",
+          "mean_elevation_m": 51.833333333333336,
+          "panchayats": [
+            {
+              "id": "PANC_101",
+              "name": "Sampatchak Gramin",
+              "code": "BR-PT-SAM-SAM",
+              "elevation_m": 53.0,
+              "elevation_delta_m": 1.2,
+              "slope_deg": 0.8,
+              "aspect": "North",
+              "area_sqkm": 9.2,
+              "centroid_lat": 25.55,
+              "centroid_lon": 85.18
+            },
+            {
+              "id": "PANC_102",
+              "name": "Bairiya",
+              "code": "BR-PT-SAM-BAI",
+              "elevation_m": 51.5,
+              "elevation_delta_m": -0.3,
+              "slope_deg": 0.5,
+              "aspect": "East",
+              "area_sqkm": 7.8,
+              "centroid_lat": 25.565,
+              "centroid_lon": 85.195
+            },
+            {
+              "id": "PANC_103",
+              "name": "Kanhauli",
+              "code": "BR-PT-SAM-KAN",
+              "elevation_m": 54.2,
+              "elevation_delta_m": 2.4,
+              "slope_deg": 1.1,
+              "aspect": "South",
+              "area_sqkm": 8.5,
+              "centroid_lat": 25.535,
+              "centroid_lon": 85.165
+            },
+            {
+              "id": "PANC_104",
+              "name": "Chipura",
+              "code": "BR-PT-SAM-CHI",
+              "elevation_m": 50.8,
+              "elevation_delta_m": -1.0,
+              "slope_deg": 0.4,
+              "aspect": "North-East",
+              "area_sqkm": 6.9,
+              "centroid_lat": 25.542,
+              "centroid_lon": 85.21
+            },
+            {
+              "id": "PANC_105",
+              "name": "Sonagopalpur",
+              "code": "BR-PT-SAM-SON",
+              "elevation_m": 52.0,
+              "elevation_delta_m": 0.2,
+              "slope_deg": 0.6,
+              "aspect": "East",
+              "area_sqkm": 11.0,
+              "centroid_lat": 25.52,
+              "centroid_lon": 85.185
+            },
+            {
+              "id": "PANC_106",
+              "name": "Tarangpur",
+              "code": "BR-PT-SAM-TAR",
+              "elevation_m": 49.5,
+              "elevation_delta_m": -2.3,
+              "slope_deg": 0.3,
+              "aspect": "North",
+              "area_sqkm": 10.4,
+              "centroid_lat": 25.575,
+              "centroid_lon": 85.16
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
