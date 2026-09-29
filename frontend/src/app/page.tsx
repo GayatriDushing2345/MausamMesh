@@ -10,6 +10,7 @@ import { AdvisoryScreen } from '@/components/AdvisoryScreen';
 import { ReliabilityScreen } from '@/components/ReliabilityScreen';
 import { SettingsScreen } from '@/components/SettingsScreen';
 import { ChatbotWidget } from '@/components/ChatbotWidget';
+import { VoiceAssistantModal } from '@/components/VoiceAssistantModal';
 import { Language } from '@/lib/i18n';
 import { 
   LocationHierarchy, 
@@ -30,8 +31,11 @@ export default function Home() {
   const [selectedBlock, setSelectedBlock] = useState<string>('BLK_001');
   const [selectedPanchayat, setSelectedPanchayat] = useState<string>('PANC_001');
   const [activeLanguage, setActiveLanguage] = useState<Language>('en');
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
   
   const [activeTab, setActiveTab] = useState<string>('dashboard');
+  const [voiceModalOpen, setVoiceModalOpen] = useState<boolean>(false);
+  const [leadDay, setLeadDay] = useState<number>(1);
 
   const [forecast, setForecast] = useState<PanchayatForecastResponse | null>(null);
   const [mapData, setMapData] = useState<MapGeoJSONResponse | null>(null);
@@ -40,12 +44,33 @@ export default function Home() {
   const [loadingData, setLoadingData] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Restore persistent state from localStorage on mount
+  // Restore persistent state (language, location, theme, URL params) on mount
   useEffect(() => {
     try {
+      // 1. URL search params sync (?gp=&day=)
+      if (typeof window !== 'undefined') {
+        const params = new URLSearchParams(window.location.search);
+        const gpParam = params.get('gp');
+        const dayParam = params.get('day');
+        if (gpParam) setSelectedPanchayat(gpParam);
+        if (dayParam) {
+          const d = parseInt(dayParam, 10);
+          if (!isNaN(d) && d >= 0 && d <= 7) setLeadDay(d);
+        }
+      }
+
       const savedLang = localStorage.getItem('sih_language') as Language;
       if (savedLang && ['en', 'hi', 'mr'].includes(savedLang)) {
         setActiveLanguage(savedLang);
+      }
+
+      const savedTheme = localStorage.getItem('sih_theme');
+      if (savedTheme === 'dark') {
+        setIsDarkMode(true);
+        document.documentElement.classList.add('dark');
+      } else {
+        setIsDarkMode(false);
+        document.documentElement.classList.remove('dark');
       }
 
       const savedLoc = localStorage.getItem('sih_location');
@@ -57,11 +82,24 @@ export default function Home() {
         if (parsed.panchayat) setSelectedPanchayat(parsed.panchayat);
       }
     } catch (e) {
-      console.warn("Could not restore stored selection:", e);
+      console.warn("Could not restore stored state:", e);
     }
   }, []);
 
-  // Save location selection to localStorage
+  const toggleTheme = () => {
+    setIsDarkMode(prev => {
+      const next = !prev;
+      if (next) {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('sih_theme', 'dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('sih_theme', 'light');
+      }
+      return next;
+    });
+  };
+
   const saveLocationSelection = (st: string, dist: string, blk: string, panc: string) => {
     try {
       localStorage.setItem('sih_location', JSON.stringify({ state: st, district: dist, block: blk, panchayat: panc }));
@@ -138,7 +176,7 @@ export default function Home() {
     loadPanchayatData();
   }, [selectedPanchayat]);
 
-  // Handlers for Location Selector Level Drilldown
+  // Handlers for Location Selector Drilldown
   const handleSelectState = (stateId: string) => {
     setSelectedState(stateId);
     const stObj = locations?.states.find(s => s.id === stateId);
@@ -187,6 +225,22 @@ export default function Home() {
   const handleSelectPanchayat = (pId: string) => {
     setSelectedPanchayat(pId);
     saveLocationSelection(selectedState, selectedDistrict, selectedBlock, pId);
+    if (typeof window !== 'undefined') {
+      const url = new URL(window.location.href);
+      url.searchParams.set('gp', pId);
+      url.searchParams.set('day', String(leadDay));
+      window.history.replaceState({}, '', url.toString());
+    }
+  };
+
+  const handleDaySelect = (day: number) => {
+    setLeadDay(day);
+    if (typeof window !== 'undefined') {
+      const url = new URL(window.location.href);
+      url.searchParams.set('gp', selectedPanchayat);
+      url.searchParams.set('day', String(day));
+      window.history.replaceState({}, '', url.toString());
+    }
   };
 
   const handleDownloadReport = () => {
@@ -197,27 +251,25 @@ export default function Home() {
   const panchayatName = forecast?.panchayat_name || 'Wagholi';
 
   return (
-    <div className="relative min-h-screen flex bg-slate-900 text-slate-900">
+    <div className="min-h-screen flex flex-col md:flex-row bg-[#F6F3EC] dark:bg-[#061321] text-slate-900 dark:text-slate-100 font-sans transition-colors w-full">
       
-      {/* ATMOSPHERIC AGRICULTURAL LANDSCAPE BACKGROUND IMAGE */}
-      <div 
-        className="fixed inset-0 bg-cover bg-fixed bg-center z-0 pointer-events-none opacity-25"
-        style={{ backgroundImage: `url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1920&auto=format&fit=crop')` }}
-      />
-      <div className="fixed inset-0 bg-gradient-to-br from-slate-100/95 via-[#FAF9F5]/98 to-emerald-50/90 backdrop-blur-[1px] z-0 pointer-events-none" />
-
-      {/* 1. PERSISTENT LEFT SIDEBAR NAVIGATION */}
+      {/* 1. PERSISTENT SIDEBAR NAVIGATION (Desktop left sidebar / Mobile bottom tab bar) */}
       <SidebarNav
         activeTab={activeTab}
         activeLanguage={activeLanguage}
         onTabChange={setActiveTab}
         onDownloadReport={handleDownloadReport}
+        onLanguageChange={handleLanguageChange}
+        isDarkMode={isDarkMode}
+        onToggleTheme={toggleTheme}
+        onSelectPanchayat={handleSelectPanchayat}
+        selectedPanchayatId={selectedPanchayat}
       />
 
       {/* MAIN CONTENT AREA */}
-      <div className="relative z-10 flex-1 flex flex-col min-w-0 pb-16 lg:pb-0">
+      <div className="flex-1 flex flex-col min-w-0 w-full pb-24 md:pb-6">
         
-        {/* 2. UNIFIED TOP BAR */}
+        {/* 2. UNIFIED STICKY TOP BAR */}
         <TopBar
           locations={locations}
           selectedState={selectedState}
@@ -230,15 +282,20 @@ export default function Home() {
           onSelectBlock={handleSelectBlock}
           onSelectPanchayat={handleSelectPanchayat}
           onLanguageChange={handleLanguageChange}
+          isDarkMode={isDarkMode}
+          onToggleTheme={toggleTheme}
+          onNavigateTab={setActiveTab}
+          onTriggerVoice={() => setVoiceModalOpen(true)}
+          leadDay={leadDay}
         />
 
         {error && (
-          <div className="bg-red-700 text-white px-4 py-2.5 text-sm text-center font-black">
-            ⚠️ {error}. Please ensure FastAPI backend is running at <code>http://127.0.0.1:8000</code>.
+          <div className="bg-red-600 text-white px-4 py-2 text-xs text-center font-bold">
+            ⚠️ {error}. Ensure FastAPI backend is running at <code>http://127.0.0.1:8000</code>.
           </div>
         )}
 
-        <div className="flex-1">
+        <main className="flex-1 w-full min-w-0 max-w-[2200px] mx-auto px-3 sm:px-6 lg:px-8 py-3 sm:py-6">
           {activeTab === 'dashboard' && (
             <DashboardScreen
               forecast={forecast}
@@ -249,6 +306,8 @@ export default function Home() {
               onNavigateToMap={() => setActiveTab('map')}
               onNavigateToAdvisory={() => setActiveTab('advisory')}
               onNavigateToAnalysis={() => setActiveTab('analysis')}
+              leadDay={leadDay}
+              onSelectLeadDay={handleDaySelect}
             />
           )}
 
@@ -299,10 +358,21 @@ export default function Home() {
               onLanguageChange={handleLanguageChange}
             />
           )}
-        </div>
+        </main>
 
         {/* Floating AI Assistant Chatbot */}
         <ChatbotWidget activeTab={activeTab} activeLanguage={activeLanguage} />
+
+        {/* Multilingual Voice Assistant Modal */}
+        <VoiceAssistantModal
+          isOpen={voiceModalOpen}
+          onClose={() => setVoiceModalOpen(false)}
+          activeLanguage={activeLanguage}
+          onNavigateTab={setActiveTab}
+          onDownloadReport={handleDownloadReport}
+          onLanguageChange={handleLanguageChange}
+          liveForecast={forecast}
+        />
       </div>
 
     </div>

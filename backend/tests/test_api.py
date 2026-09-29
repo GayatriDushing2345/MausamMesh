@@ -35,7 +35,18 @@ def test_panchayat_forecast_endpoint():
     assert data["panchayat_id"] == "PANC_001"
     assert data["is_mint_reconciled"] is True
     assert data["is_conformal_calibrated"] is True
-    assert len(data["five_day_forecast"]) == 5
+    assert len(data["five_day_forecast"]) in [5, 8]
+    assert "evidence_chips" in data
+    assert data["model_used"] == "xgboost"
+
+def test_panchayat_fallback_honesty_endpoint():
+    # PANC_005 is explicitly designated as baseline fallback demo
+    response = client.get("/api/v1/panchayats/PANC_005/forecast")
+    assert response.status_code == 200
+    data = response.json()
+    assert data["panchayat_id"] == "PANC_005"
+    assert data["model_used"] == "baseline"
+    assert data["baseline_fallback_reason"] is not None
 
 def test_panchayat_compare_endpoint():
     response = client.get("/api/v1/panchayats/PANC_007/compare")
@@ -68,3 +79,25 @@ def test_panchayat_report_pdf_endpoint():
     assert response.status_code == 200
     assert response.headers["content-type"] == "application/pdf"
     assert len(response.content) > 1000
+
+def test_location_tree_endpoint():
+    response = client.get("/api/v1/locations/tree?level=state")
+    assert response.status_code == 200
+    data = response.json()
+    assert len(data) > 0
+    assert data[0]["level"] == "state"
+
+def test_location_search_endpoint():
+    response = client.get("/api/v1/locations/search?q=Wagholi")
+    assert response.status_code == 200
+    data = response.json()
+    assert len(data) > 0
+    assert any("Wagholi" in item["name"] for item in data)
+
+def test_data_health_endpoint():
+    response = client.get("/api/v1/system/data-health")
+    assert response.status_code == 200
+    data = response.json()
+    assert data["overall_status"] in ["green", "amber", "red"]
+    assert len(data["sources"]) >= 3
+

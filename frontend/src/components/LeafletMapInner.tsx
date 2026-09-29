@@ -3,13 +3,15 @@
 import React, { useEffect } from 'react';
 import { MapContainer, TileLayer, GeoJSON, useMap } from 'react-leaflet';
 import L from 'leaflet';
-import { MapGeoJSONResponse, MapFeature } from '@/lib/types';
+import { MapGeoJSONResponse } from '@/lib/types';
+import { getIMDRainfallCategory } from '@/lib/imdCategories';
 
 interface LeafletMapInnerProps {
   mapData: MapGeoJSONResponse;
-  activeLayer: 'downscaled' | 'baseline' | 'residual';
+  activeLayer: 'priority' | 'downscaled' | 'baseline' | 'residual';
   selectedPanchayatId: string;
   onSelectPanchayat: (id: string) => void;
+  priorityTiersMap?: Record<string, string>; // Maps panchayat_id -> 'Very High' | 'High' | 'Medium' | 'Low'
 }
 
 // Helper to fit map bounds automatically
@@ -36,6 +38,7 @@ export const LeafletMapInner: React.FC<LeafletMapInnerProps> = ({
   activeLayer,
   selectedPanchayatId,
   onSelectPanchayat,
+  priorityTiersMap = {},
 }) => {
   // Compute initial center coordinates dynamically from map features
   let centerLat = 18.48;
@@ -64,22 +67,24 @@ export const LeafletMapInner: React.FC<LeafletMapInnerProps> = ({
     }
   }
 
-  // Color scale functions - Agricultural Green & Amber Palette for MausamMesh
-  const getRainColor = (val: number) => {
-    return val > 30 ? '#14532d' : // Heavy rain (dark forest green)
-           val > 24 ? '#15803d' : // Moderate-heavy rain (deep agricultural green)
-           val > 18 ? '#22c55e' : // Moderate rain (vibrant green)
-           val > 12 ? '#86efac' : // Light rain (soft sage green)
-           val > 5  ? '#fde047' : // Very light rain (light amber)
-                      '#fef9c3';  // Minimal rain (warm pale yellow)
+  // Tier Colors for Priority Map
+  const getTierColor = (tierName?: string) => {
+    switch (tierName) {
+      case 'Very High': return '#D64545'; // Red
+      case 'High': return '#F28C28';      // Orange
+      case 'Medium': return '#F2C230';    // Yellow
+      case 'Low':
+      default:
+        return '#2E9E4F';                // Green
+    }
   };
 
   const getResidualColor = (val: number) => {
-    return val > 4   ? '#d97706' : // strong positive residual (amber-600)
-           val > 1.5 ? '#15803d' : // moderate positive residual (agricultural green)
-           val > -1.5? '#94a3b8' : // near zero (neutral slate)
-           val > -4  ? '#0284c7' : // moderate negative residual (sky blue)
-                      '#4338ca';  // strong negative residual (indigo)
+    return val > 4   ? '#d97706' : 
+           val > 1.5 ? '#2E8B57' : 
+           val > -1.5? '#94a3b8' : 
+           val > -4  ? '#0284c7' : 
+                      '#4338ca';  
   };
 
   const styleFeature = (feature: any) => {
@@ -97,20 +102,27 @@ export const LeafletMapInner: React.FC<LeafletMapInnerProps> = ({
       };
     }
 
-    let fillColor = '#15803d';
-    if (activeLayer === 'downscaled') {
-      fillColor = getRainColor(props.downscaled_rain_mm);
+    const tier = priorityTiersMap[props.id] || props.priority_tier || 'Medium';
+
+    let fillColor = '#2E8B57';
+    if (activeLayer === 'priority') {
+      fillColor = getTierColor(tier);
+    } else if (activeLayer === 'downscaled') {
+      fillColor = getIMDRainfallCategory(props.downscaled_rain_mm).mapColor;
     } else if (activeLayer === 'baseline') {
-      fillColor = getRainColor(props.block_baseline_rain_mm);
+      fillColor = getIMDRainfallCategory(props.block_baseline_rain_mm).mapColor;
     } else if (activeLayer === 'residual') {
       fillColor = getResidualColor(props.residual_delta_mm);
     }
 
+    const isVeryHigh = tier === 'Very High' && activeLayer === 'priority';
+
     return {
       fillColor,
-      fillOpacity: isSelected ? 0.85 : 0.65,
-      color: isSelected ? '#0f172a' : '#1e293b',
-      weight: isSelected ? 3 : 1.5,
+      fillOpacity: isSelected ? 0.90 : 0.70,
+      color: isSelected ? '#000000' : isVeryHigh ? '#D64545' : '#1e293b',
+      weight: isSelected ? 3.5 : isVeryHigh ? 3 : 1.5,
+      className: isVeryHigh ? 'animate-pulse' : '',
     };
   };
 
@@ -118,14 +130,17 @@ export const LeafletMapInner: React.FC<LeafletMapInnerProps> = ({
     const props = feature.properties;
     if (props.type === 'block') return;
 
+    const tier = priorityTiersMap[props.id] || props.priority_tier || 'Medium';
+    const cat = getIMDRainfallCategory(props.downscaled_rain_mm);
+
     const popupContent = `
-      <div style="font-family: sans-serif; font-size: 12px; padding: 4px;">
-        <strong style="font-size: 14px; color: #0f172a;">${props.name} Panchayat</strong><br/>
-        <span style="color: #64748b;">Elevation: ${props.elevation_m}m</span><hr style="margin: 4px 0; border: none; border-top: 1px solid #e2e8f0;"/>
-        <div>Downscaled Rain: <strong>${props.downscaled_rain_mm} mm</strong></div>
+      <div style="font-family: sans-serif; font-size: 12px; padding: 4px; color: #0F172A;">
+        <strong style="font-size: 14px; color: #0F172A;">${props.name} Panchayat</strong><br/>
+        <span style="color: #64748B;">Elevation: ${props.elevation_m}m</span>
+        <hr style="margin: 4px 0; border: none; border-top: 1px solid #e2e8f0;"/>
+        <div>Priority Tier: <strong style="color: ${getTierColor(tier)};">${tier}</strong></div>
+        <div>Downscaled Rain: <strong>${props.downscaled_rain_mm} mm</strong> (${cat.labelEn})</div>
         <div>Block Baseline: ${props.block_baseline_rain_mm} mm</div>
-        <div>Predicted Residual: <strong style="color: ${props.residual_delta_mm >= 0 ? '#047857' : '#b45309'};">${props.residual_delta_mm >= 0 ? '+' : ''}${props.residual_delta_mm} mm</strong></div>
-        <div>Heavy Rain Prob: ${props.heavy_rain_prob_pct}%</div>
       </div>
     `;
 
@@ -146,7 +161,7 @@ export const LeafletMapInner: React.FC<LeafletMapInnerProps> = ({
       center={[centerLat, centerLon]}
       zoom={12}
       scrollWheelZoom={true}
-      style={{ height: '100%', width: '100%', borderRadius: '0.75rem' }}
+      style={{ height: '100%', width: '100%', borderRadius: '1rem' }}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

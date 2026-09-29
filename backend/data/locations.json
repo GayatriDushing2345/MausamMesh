@@ -4,464 +4,1317 @@
     {
       "id": "STATE_27",
       "name": "Maharashtra",
-      "code": "MH-27",
+      "name_hi": "महाराष्ट्र",
+      "name_mr": "महाराष्ट्र",
+      "code": "MH",
+      "lgd_code": 27,
+      "has_data": true,
       "districts": [
         {
-          "id": "DIST_001",
+          "id": "DIST_492",
           "name": "Pune",
+          "name_hi": "पुणे",
+          "name_mr": "पुणे",
           "code": "MH-PN",
-          "state": "Maharashtra",
+          "lgd_code": 492,
+          "has_data": true,
           "blocks": [
             {
               "id": "BLK_001",
               "name": "Haveli",
+              "name_hi": "हवेली",
+              "name_mr": "हवेली",
               "code": "MH-PN-HAV",
+              "lgd_code": 4220,
               "mean_elevation_m": 580.5,
+              "has_data": true,
               "panchayats": [
                 {
                   "id": "PANC_001",
                   "name": "Wagholi",
+                  "name_hi": "वाघोली",
+                  "name_mr": "वाघोली",
                   "code": "MH-PN-HAV-WAG",
+                  "lgd_code": 187211,
                   "elevation_m": 590.0,
                   "elevation_delta_m": 9.5,
                   "slope_deg": 4.2,
                   "aspect": "East",
                   "area_sqkm": 14.5,
                   "centroid_lat": 18.578,
-                  "centroid_lon": 73.98
+                  "centroid_lon": 73.98,
+                  "has_data": true,
+                  "villages": [
+                    "Wagholi Gaothan",
+                    "Bakori Phata",
+                    "Domkhel Wasti",
+                    "Kesnand Road Vasti"
+                  ]
                 },
                 {
                   "id": "PANC_002",
                   "name": "Hadapsar Rural",
+                  "name_hi": "हड़पसर ग्रामीण",
+                  "name_mr": "हडपसर ग्रामीण",
                   "code": "MH-PN-HAV-HAD",
+                  "lgd_code": 187212,
                   "elevation_m": 560.0,
                   "elevation_delta_m": -20.5,
                   "slope_deg": 2.1,
                   "aspect": "North",
                   "area_sqkm": 12.0,
                   "centroid_lat": 18.508,
-                  "centroid_lon": 73.935
+                  "centroid_lon": 73.935,
+                  "has_data": true,
+                  "villages": [
+                    "Hadapsar Gaothan",
+                    "Malwadi",
+                    "Sasane Nagar"
+                  ]
                 },
                 {
                   "id": "PANC_003",
                   "name": "Manjari Khurd",
+                  "name_hi": "मांजरी खुर्द",
+                  "name_mr": "मांजरी खुर्द",
                   "code": "MH-PN-HAV-MAN",
+                  "lgd_code": 187213,
                   "elevation_m": 552.0,
                   "elevation_delta_m": -28.5,
                   "slope_deg": 1.8,
                   "aspect": "East",
                   "area_sqkm": 10.8,
                   "centroid_lat": 18.525,
-                  "centroid_lon": 73.978
+                  "centroid_lon": 73.978,
+                  "has_data": true,
+                  "villages": [
+                    "Manjari Gaothan",
+                    "Gopalpatti",
+                    "Kolwadi Road"
+                  ]
                 },
                 {
                   "id": "PANC_004",
                   "name": "Phursungi",
+                  "name_hi": "फुरसुंगी",
+                  "name_mr": "फुरसुंगी",
                   "code": "MH-PN-HAV-PHU",
+                  "lgd_code": 187214,
                   "elevation_m": 575.0,
                   "elevation_delta_m": -5.5,
                   "slope_deg": 3.5,
                   "aspect": "South",
                   "area_sqkm": 15.2,
                   "centroid_lat": 18.472,
-                  "centroid_lon": 73.96
+                  "centroid_lon": 73.96,
+                  "has_data": true,
+                  "villages": [
+                    "Phursungi Gaothan",
+                    "Bhekrai Nagar",
+                    "Harpale Wasti"
+                  ]
                 },
                 {
                   "id": "PANC_005",
                   "name": "Loni Kalbhor",
+                  "name_hi": "लोणी कालभोर",
+                  "name_mr": "लोणी काळभोर",
                   "code": "MH-PN-HAV-LON",
+                  "lgd_code": 187215,
                   "elevation_m": 548.0,
                   "elevation_delta_m": -32.5,
                   "slope_deg": 1.5,
                   "aspect": "East",
                   "area_sqkm": 18.0,
                   "centroid_lat": 18.485,
-                  "centroid_lon": 74.02
+                  "centroid_lon": 74.02,
+                  "has_data": true,
+                  "villages": [
+                    "Loni Gaothan",
+                    "Kadamwak Wasti",
+                    "Mali Mala"
+                  ]
                 },
                 {
                   "id": "PANC_006",
                   "name": "Uruli Kanchan",
+                  "name_hi": "उरुली कांचन",
+                  "name_mr": "उरुळी कांचन",
                   "code": "MH-PN-HAV-URU",
+                  "lgd_code": 187216,
                   "elevation_m": 540.0,
                   "elevation_delta_m": -40.5,
                   "slope_deg": 1.2,
                   "aspect": "North-East",
                   "area_sqkm": 22.4,
                   "centroid_lat": 18.488,
-                  "centroid_lon": 74.135
+                  "centroid_lon": 74.135,
+                  "has_data": true,
+                  "villages": [
+                    "Uruli Gaothan",
+                    "BAIF Campus Area",
+                    "Kanchan Nagar"
+                  ]
                 },
                 {
                   "id": "PANC_007",
                   "name": "Khed Shivapur",
+                  "name_hi": "खेड शिवापुर",
+                  "name_mr": "खेड शिवापूर",
                   "code": "MH-PN-HAV-KHE",
+                  "lgd_code": 187217,
                   "elevation_m": 645.0,
                   "elevation_delta_m": 64.5,
                   "slope_deg": 8.5,
                   "aspect": "South-West",
-                  "area_sqkm": 16.8,
-                  "centroid_lat": 18.345,
-                  "centroid_lon": 73.85
+                  "area_sqkm": 16.5,
+                  "centroid_lat": 18.35,
+                  "centroid_lon": 73.845,
+                  "has_data": true,
+                  "villages": [
+                    "Khed Gaothan",
+                    "Dangat Wasti",
+                    "Gogalwadi Road"
+                  ]
                 },
                 {
                   "id": "PANC_008",
-                  "name": "Kondhwa Budruk",
-                  "code": "MH-PN-HAV-KON",
-                  "elevation_m": 610.0,
-                  "elevation_delta_m": 29.5,
-                  "slope_deg": 6.1,
-                  "aspect": "South-West",
+                  "name": "Charholi Budruk",
+                  "name_hi": "चऱ्होली बुद्रुक",
+                  "name_mr": "चऱ्होली बुद्रुक",
+                  "code": "MH-PN-HAV-CHA",
+                  "lgd_code": 187218,
+                  "elevation_m": 585.0,
+                  "elevation_delta_m": 4.5,
+                  "slope_deg": 3.1,
+                  "aspect": "North",
                   "area_sqkm": 11.2,
-                  "centroid_lat": 18.455,
-                  "centroid_lon": 73.89
+                  "centroid_lat": 18.625,
+                  "centroid_lon": 73.91,
+                  "has_data": false,
+                  "villages": [
+                    "Charholi Gaothan",
+                    "Wadmukhwadi",
+                    "Pathare Wasti"
+                  ]
                 },
                 {
                   "id": "PANC_009",
-                  "name": "Dhayari",
-                  "code": "MH-PN-HAV-DHA",
-                  "elevation_m": 620.0,
-                  "elevation_delta_m": 39.5,
-                  "slope_deg": 7.0,
-                  "aspect": "West",
+                  "name": "Alandi Rural",
+                  "name_hi": "आलंदी ग्रामीण",
+                  "name_mr": "आळंदी ग्रामीण",
+                  "code": "MH-PN-HAV-ALA",
+                  "lgd_code": 187219,
+                  "elevation_m": 592.0,
+                  "elevation_delta_m": 11.5,
+                  "slope_deg": 2.8,
+                  "aspect": "East",
                   "area_sqkm": 9.5,
-                  "centroid_lat": 18.442,
-                  "centroid_lon": 73.815
+                  "centroid_lat": 18.675,
+                  "centroid_lon": 73.895,
+                  "has_data": false,
+                  "villages": [
+                    "Alandi Gaothan",
+                    "Dudhgaon",
+                    "Indrayani Nagar"
+                  ]
                 },
                 {
                   "id": "PANC_010",
-                  "name": "Nanded Gramin",
-                  "code": "MH-PN-HAV-NAN",
-                  "elevation_m": 565.0,
-                  "elevation_delta_m": -15.5,
-                  "slope_deg": 2.8,
-                  "aspect": "North",
-                  "area_sqkm": 8.4,
-                  "centroid_lat": 18.458,
-                  "centroid_lon": 73.798
+                  "name": "Kesnand",
+                  "name_hi": "केसनंद",
+                  "name_mr": "केसनंद",
+                  "code": "MH-PN-HAV-KES",
+                  "lgd_code": 187220,
+                  "elevation_m": 610.0,
+                  "elevation_delta_m": 29.5,
+                  "slope_deg": 5.4,
+                  "aspect": "South-East",
+                  "area_sqkm": 13.0,
+                  "centroid_lat": 18.552,
+                  "centroid_lon": 74.045,
+                  "has_data": false,
+                  "villages": [
+                    "Kesnand Gaothan",
+                    "Jogeshwari Mandir Area",
+                    "Wadekar Wasti"
+                  ]
+                },
+                {
+                  "id": "PANC_011",
+                  "name": "Bakori",
+                  "name_hi": "बाकोरी",
+                  "name_mr": "बाकोरी",
+                  "code": "MH-PN-HAV-BAK",
+                  "lgd_code": 187221,
+                  "elevation_m": 618.0,
+                  "elevation_delta_m": 37.5,
+                  "slope_deg": 6.2,
+                  "aspect": "East",
+                  "area_sqkm": 8.8,
+                  "centroid_lat": 18.595,
+                  "centroid_lon": 74.02,
+                  "has_data": false,
+                  "villages": [
+                    "Bakori Gaothan",
+                    "Hill View Wasti"
+                  ]
                 }
               ]
+            },
+            {
+              "id": "BLK_4221",
+              "name": "Pune City",
+              "name_hi": "पुणे शहर",
+              "name_mr": "पुणे शहर",
+              "code": "MH-PN-CTY",
+              "lgd_code": 4221,
+              "mean_elevation_m": 560.0,
+              "has_data": false,
+              "panchayats": []
+            },
+            {
+              "id": "BLK_4222",
+              "name": "Baramati",
+              "name_hi": "बारामती",
+              "name_mr": "बारामती",
+              "code": "MH-PN-BAR",
+              "lgd_code": 4222,
+              "mean_elevation_m": 538.0,
+              "has_data": false,
+              "panchayats": []
+            },
+            {
+              "id": "BLK_4223",
+              "name": "Daund",
+              "name_hi": "दौंड",
+              "name_mr": "दौंड",
+              "code": "MH-PN-DAU",
+              "lgd_code": 4223,
+              "mean_elevation_m": 514.0,
+              "has_data": false,
+              "panchayats": []
+            },
+            {
+              "id": "BLK_4224",
+              "name": "Indapur",
+              "name_hi": "इंदापुर",
+              "name_mr": "इंदापूर",
+              "code": "MH-PN-IND",
+              "lgd_code": 4224,
+              "mean_elevation_m": 500.0,
+              "has_data": false,
+              "panchayats": []
+            },
+            {
+              "id": "BLK_4225",
+              "name": "Shirur",
+              "name_hi": "शिरूर",
+              "name_mr": "शिरूर",
+              "code": "MH-PN-SHI",
+              "lgd_code": 4225,
+              "mean_elevation_m": 565.0,
+              "has_data": false,
+              "panchayats": []
+            },
+            {
+              "id": "BLK_4226",
+              "name": "Khed (Rajgurunagar)",
+              "name_hi": "खेड",
+              "name_mr": "खेड (राजगुरुनगर)",
+              "code": "MH-PN-KHD",
+              "lgd_code": 4226,
+              "mean_elevation_m": 640.0,
+              "has_data": false,
+              "panchayats": []
+            },
+            {
+              "id": "BLK_4227",
+              "name": "Junnar",
+              "name_hi": "जुन्नर",
+              "name_mr": "जुन्नर",
+              "code": "MH-PN-JUN",
+              "lgd_code": 4227,
+              "mean_elevation_m": 680.0,
+              "has_data": false,
+              "panchayats": []
+            },
+            {
+              "id": "BLK_4228",
+              "name": "Ambegaon",
+              "name_hi": "आंबेगाव",
+              "name_mr": "आंबेगाव",
+              "code": "MH-PN-AMB",
+              "lgd_code": 4228,
+              "mean_elevation_m": 660.0,
+              "has_data": false,
+              "panchayats": []
+            },
+            {
+              "id": "BLK_4229",
+              "name": "Maval",
+              "name_hi": "मावल",
+              "name_mr": "मावळ",
+              "code": "MH-PN-MAV",
+              "lgd_code": 4229,
+              "mean_elevation_m": 620.0,
+              "has_data": false,
+              "panchayats": []
+            },
+            {
+              "id": "BLK_4230",
+              "name": "Mulshi",
+              "name_hi": "मुळशी",
+              "name_mr": "मुळशी",
+              "code": "MH-PN-MUL",
+              "lgd_code": 4230,
+              "mean_elevation_m": 650.0,
+              "has_data": false,
+              "panchayats": []
+            },
+            {
+              "id": "BLK_4231",
+              "name": "Velhe (Rajgad)",
+              "name_hi": "वेल्हे",
+              "name_mr": "वेल्हे (राजगड)",
+              "code": "MH-PN-VEL",
+              "lgd_code": 4231,
+              "mean_elevation_m": 720.0,
+              "has_data": false,
+              "panchayats": []
+            },
+            {
+              "id": "BLK_4232",
+              "name": "Bhor",
+              "name_hi": "भोर",
+              "name_mr": "भोर",
+              "code": "MH-PN-BHO",
+              "lgd_code": 4232,
+              "mean_elevation_m": 590.0,
+              "has_data": false,
+              "panchayats": []
+            },
+            {
+              "id": "BLK_4233",
+              "name": "Purandar (Saswad)",
+              "name_hi": "पुरंदर",
+              "name_mr": "पुरंदर (सासवड)",
+              "code": "MH-PN-PUR",
+              "lgd_code": 4233,
+              "mean_elevation_m": 740.0,
+              "has_data": false,
+              "panchayats": []
             }
           ]
+        },
+        {
+          "id": "DIST_471",
+          "name": "Ahilyanagar (Ahmednagar)",
+          "name_hi": "अहिल्यानगर",
+          "name_mr": "अहिल्यानगर",
+          "code": "MH-AH",
+          "lgd_code": 471,
+          "has_data": false,
+          "blocks": []
+        },
+        {
+          "id": "DIST_472",
+          "name": "Akola",
+          "name_hi": "अकोला",
+          "name_mr": "अकोला",
+          "code": "MH-AK",
+          "lgd_code": 472,
+          "has_data": false,
+          "blocks": []
+        },
+        {
+          "id": "DIST_473",
+          "name": "Amravati",
+          "name_hi": "अमरावती",
+          "name_mr": "अमरावती",
+          "code": "MH-AM",
+          "lgd_code": 473,
+          "has_data": false,
+          "blocks": []
+        },
+        {
+          "id": "DIST_474",
+          "name": "Chhatrapati Sambhajinagar (Aurangabad)",
+          "name_hi": "छत्रपति संभाजीनगर",
+          "name_mr": "छत्रपती संभाजीनगर",
+          "code": "MH-AU",
+          "lgd_code": 474,
+          "has_data": false,
+          "blocks": []
+        },
+        {
+          "id": "DIST_475",
+          "name": "Beed",
+          "name_hi": "बीड",
+          "name_mr": "बीड",
+          "code": "MH-BI",
+          "lgd_code": 475,
+          "has_data": false,
+          "blocks": []
+        },
+        {
+          "id": "DIST_476",
+          "name": "Bhandara",
+          "name_hi": "भंडारा",
+          "name_mr": "भंडारा",
+          "code": "MH-BH",
+          "lgd_code": 476,
+          "has_data": false,
+          "blocks": []
+        },
+        {
+          "id": "DIST_477",
+          "name": "Buldhana",
+          "name_hi": "बुलढाणा",
+          "name_mr": "बुलढाणा",
+          "code": "MH-BU",
+          "lgd_code": 477,
+          "has_data": false,
+          "blocks": []
+        },
+        {
+          "id": "DIST_478",
+          "name": "Chandrapur",
+          "name_hi": "चंद्रपुर",
+          "name_mr": "चंद्रपूर",
+          "code": "MH-CH",
+          "lgd_code": 478,
+          "has_data": false,
+          "blocks": []
+        },
+        {
+          "id": "DIST_479",
+          "name": "Dhule",
+          "name_hi": "धुले",
+          "name_mr": "धुळे",
+          "code": "MH-DH",
+          "lgd_code": 479,
+          "has_data": false,
+          "blocks": []
+        },
+        {
+          "id": "DIST_480",
+          "name": "Gadchiroli",
+          "name_hi": "गडचिरोली",
+          "name_mr": "गडचिरोली",
+          "code": "MH-GA",
+          "lgd_code": 480,
+          "has_data": false,
+          "blocks": []
+        },
+        {
+          "id": "DIST_481",
+          "name": "Gondia",
+          "name_hi": "गोंदिया",
+          "name_mr": "गोंदिया",
+          "code": "MH-GO",
+          "lgd_code": 481,
+          "has_data": false,
+          "blocks": []
+        },
+        {
+          "id": "DIST_482",
+          "name": "Hingoli",
+          "name_hi": "हिंगोली",
+          "name_mr": "हिंगोली",
+          "code": "MH-HI",
+          "lgd_code": 482,
+          "has_data": false,
+          "blocks": []
+        },
+        {
+          "id": "DIST_483",
+          "name": "Jalgaon",
+          "name_hi": "जलगांव",
+          "name_mr": "जळगाव",
+          "code": "MH-JL",
+          "lgd_code": 483,
+          "has_data": false,
+          "blocks": []
+        },
+        {
+          "id": "DIST_484",
+          "name": "Jalna",
+          "name_hi": "जालना",
+          "name_mr": "जालना",
+          "code": "MH-JA",
+          "lgd_code": 484,
+          "has_data": false,
+          "blocks": []
+        },
+        {
+          "id": "DIST_485",
+          "name": "Kolhapur",
+          "name_hi": "कोल्हापुर",
+          "name_mr": "कोल्हापूर",
+          "code": "MH-KO",
+          "lgd_code": 485,
+          "has_data": false,
+          "blocks": []
+        },
+        {
+          "id": "DIST_486",
+          "name": "Latur",
+          "name_hi": "लातूर",
+          "name_mr": "लातूर",
+          "code": "MH-LA",
+          "lgd_code": 486,
+          "has_data": false,
+          "blocks": []
+        },
+        {
+          "id": "DIST_487",
+          "name": "Mumbai City",
+          "name_hi": "मुंबई शहर",
+          "name_mr": "मुंबई शहर",
+          "code": "MH-MC",
+          "lgd_code": 487,
+          "has_data": false,
+          "blocks": []
+        },
+        {
+          "id": "DIST_488",
+          "name": "Mumbai Suburban",
+          "name_hi": "मुंबई उपनगर",
+          "name_mr": "मुंबई उपनगर",
+          "code": "MH-MS",
+          "lgd_code": 488,
+          "has_data": false,
+          "blocks": []
+        },
+        {
+          "id": "DIST_489",
+          "name": "Nagpur",
+          "name_hi": "नागपुर",
+          "name_mr": "नागपूर",
+          "code": "MH-NG",
+          "lgd_code": 489,
+          "has_data": false,
+          "blocks": []
+        },
+        {
+          "id": "DIST_490",
+          "name": "Nanded",
+          "name_hi": "नांदेड़",
+          "name_mr": "नांदेड",
+          "code": "MH-ND",
+          "lgd_code": 490,
+          "has_data": false,
+          "blocks": []
+        },
+        {
+          "id": "DIST_491",
+          "name": "Nandurbar",
+          "name_hi": "नंदुरबार",
+          "name_mr": "नंदुरबार",
+          "code": "MH-NB",
+          "lgd_code": 491,
+          "has_data": false,
+          "blocks": []
+        },
+        {
+          "id": "DIST_493",
+          "name": "Nashik",
+          "name_hi": "नासिक",
+          "name_mr": "नाशिक",
+          "code": "MH-NS",
+          "lgd_code": 493,
+          "has_data": false,
+          "blocks": []
+        },
+        {
+          "id": "DIST_494",
+          "name": "Dharashiv (Osmanabad)",
+          "name_hi": "धाराशिव",
+          "name_mr": "धाराशिव",
+          "code": "MH-OS",
+          "lgd_code": 494,
+          "has_data": false,
+          "blocks": []
+        },
+        {
+          "id": "DIST_664",
+          "name": "Palghar",
+          "name_hi": "पालघर",
+          "name_mr": "पालघर",
+          "code": "MH-PL",
+          "lgd_code": 664,
+          "has_data": false,
+          "blocks": []
+        },
+        {
+          "id": "DIST_495",
+          "name": "Parbhani",
+          "name_hi": "परभणी",
+          "name_mr": "परभणी",
+          "code": "MH-PA",
+          "lgd_code": 495,
+          "has_data": false,
+          "blocks": []
+        },
+        {
+          "id": "DIST_496",
+          "name": "Raigad",
+          "name_hi": "रायगढ़",
+          "name_mr": "रायगड",
+          "code": "MH-RG",
+          "lgd_code": 496,
+          "has_data": false,
+          "blocks": []
+        },
+        {
+          "id": "DIST_497",
+          "name": "Ratnagiri",
+          "name_hi": "रत्नागिरी",
+          "name_mr": "रत्नागिरी",
+          "code": "MH-RT",
+          "lgd_code": 497,
+          "has_data": false,
+          "blocks": []
+        },
+        {
+          "id": "DIST_498",
+          "name": "Sangli",
+          "name_hi": "सांगली",
+          "name_mr": "सांगली",
+          "code": "MH-SN",
+          "lgd_code": 498,
+          "has_data": false,
+          "blocks": []
+        },
+        {
+          "id": "DIST_499",
+          "name": "Satara",
+          "name_hi": "सातारा",
+          "name_mr": "सातारा",
+          "code": "MH-ST",
+          "lgd_code": 499,
+          "has_data": false,
+          "blocks": []
+        },
+        {
+          "id": "DIST_500",
+          "name": "Sindhudurg",
+          "name_hi": "सिंधुदुर्ग",
+          "name_mr": "सिंधुदुर्ग",
+          "code": "MH-SI",
+          "lgd_code": 500,
+          "has_data": false,
+          "blocks": []
+        },
+        {
+          "id": "DIST_501",
+          "name": "Solapur",
+          "name_hi": "सोलापुर",
+          "name_mr": "सोलापूर",
+          "code": "MH-SO",
+          "lgd_code": 501,
+          "has_data": false,
+          "blocks": []
+        },
+        {
+          "id": "DIST_502",
+          "name": "Thane",
+          "name_hi": "ठाणे",
+          "name_mr": "ठाणे",
+          "code": "MH-TH",
+          "lgd_code": 502,
+          "has_data": false,
+          "blocks": []
+        },
+        {
+          "id": "DIST_503",
+          "name": "Wardha",
+          "name_hi": "वर्धा",
+          "name_mr": "वर्धा",
+          "code": "MH-WR",
+          "lgd_code": 503,
+          "has_data": false,
+          "blocks": []
+        },
+        {
+          "id": "DIST_504",
+          "name": "Washim",
+          "name_hi": "वाशिम",
+          "name_mr": "वाशिम",
+          "code": "MH-WS",
+          "lgd_code": 504,
+          "has_data": false,
+          "blocks": []
+        },
+        {
+          "id": "DIST_505",
+          "name": "Yavatmal",
+          "name_hi": "यवतमाल",
+          "name_mr": "यवतमाळ",
+          "code": "MH-YV",
+          "lgd_code": 505,
+          "has_data": false,
+          "blocks": []
         }
       ]
     },
     {
+      "id": "STATE_24",
+      "name": "Gujarat",
+      "name_hi": "गुजरात",
+      "name_mr": "गुजरात",
+      "code": "GJ",
+      "lgd_code": 24,
+      "has_data": false,
+      "districts": []
+    },
+    {
+      "id": "STATE_29",
+      "name": "Karnataka",
+      "name_hi": "कर्नाटक",
+      "name_mr": "कर्नाटक",
+      "code": "KA",
+      "lgd_code": 29,
+      "has_data": false,
+      "districts": []
+    },
+    {
+      "id": "STATE_33",
+      "name": "Tamil Nadu",
+      "name_hi": "तमिलनाडु",
+      "name_mr": "तमिळनाडू",
+      "code": "TN",
+      "lgd_code": 33,
+      "has_data": false,
+      "districts": []
+    },
+    {
+      "id": "STATE_36",
+      "name": "Telangana",
+      "name_hi": "तेलंगाना",
+      "name_mr": "तेलंगणा",
+      "code": "TS",
+      "lgd_code": 36,
+      "has_data": false,
+      "districts": []
+    },
+    {
+      "id": "STATE_28",
+      "name": "Andhra Pradesh",
+      "name_hi": "आंध्र प्रदेश",
+      "name_mr": "आंध्र प्रदेश",
+      "code": "AP",
+      "lgd_code": 28,
+      "has_data": false,
+      "districts": []
+    },
+    {
+      "id": "STATE_23",
+      "name": "Madhya Pradesh",
+      "name_hi": "मध्य प्रदेश",
+      "name_mr": "मध्य प्रदेश",
+      "code": "MP",
+      "lgd_code": 23,
+      "has_data": false,
+      "districts": []
+    },
+    {
+      "id": "STATE_08",
+      "name": "Rajasthan",
+      "name_hi": "राजस्थान",
+      "name_mr": "राजस्थान",
+      "code": "RJ",
+      "lgd_code": 8,
+      "has_data": false,
+      "districts": []
+    },
+    {
+      "id": "STATE_09",
+      "name": "Uttar Pradesh",
+      "name_hi": "उत्तर प्रदेश",
+      "name_mr": "उत्तर प्रदेश",
+      "code": "UP",
+      "lgd_code": 9,
+      "has_data": false,
+      "districts": []
+    },
+    {
       "id": "STATE_10",
       "name": "Bihar",
-      "code": "BR-10",
-      "districts": [
-        {
-          "id": "DIST_002",
-          "name": "Patna",
-          "code": "BR-PT",
-          "state": "Bihar",
-          "blocks": [
-            {
-              "id": "BLK_002",
-              "name": "Sampatchak",
-              "code": "BR-PT-SAM",
-              "mean_elevation_m": 51.833333333333336,
-              "panchayats": [
-                {
-                  "id": "PANC_101",
-                  "name": "Sampatchak Gramin",
-                  "code": "BR-PT-SAM-SAM",
-                  "elevation_m": 53.0,
-                  "elevation_delta_m": 1.2,
-                  "slope_deg": 0.8,
-                  "aspect": "North",
-                  "area_sqkm": 9.2,
-                  "centroid_lat": 25.55,
-                  "centroid_lon": 85.18
-                },
-                {
-                  "id": "PANC_102",
-                  "name": "Bairiya",
-                  "code": "BR-PT-SAM-BAI",
-                  "elevation_m": 51.5,
-                  "elevation_delta_m": -0.3,
-                  "slope_deg": 0.5,
-                  "aspect": "East",
-                  "area_sqkm": 7.8,
-                  "centroid_lat": 25.565,
-                  "centroid_lon": 85.195
-                },
-                {
-                  "id": "PANC_103",
-                  "name": "Kanhauli",
-                  "code": "BR-PT-SAM-KAN",
-                  "elevation_m": 54.2,
-                  "elevation_delta_m": 2.4,
-                  "slope_deg": 1.1,
-                  "aspect": "South",
-                  "area_sqkm": 8.5,
-                  "centroid_lat": 25.535,
-                  "centroid_lon": 85.165
-                },
-                {
-                  "id": "PANC_104",
-                  "name": "Chipura",
-                  "code": "BR-PT-SAM-CHI",
-                  "elevation_m": 50.8,
-                  "elevation_delta_m": -1.0,
-                  "slope_deg": 0.4,
-                  "aspect": "North-East",
-                  "area_sqkm": 6.9,
-                  "centroid_lat": 25.542,
-                  "centroid_lon": 85.21
-                },
-                {
-                  "id": "PANC_105",
-                  "name": "Sonagopalpur",
-                  "code": "BR-PT-SAM-SON",
-                  "elevation_m": 52.0,
-                  "elevation_delta_m": 0.2,
-                  "slope_deg": 0.6,
-                  "aspect": "East",
-                  "area_sqkm": 11.0,
-                  "centroid_lat": 25.52,
-                  "centroid_lon": 85.185
-                },
-                {
-                  "id": "PANC_106",
-                  "name": "Tarangpur",
-                  "code": "BR-PT-SAM-TAR",
-                  "elevation_m": 49.5,
-                  "elevation_delta_m": -2.3,
-                  "slope_deg": 0.3,
-                  "aspect": "North",
-                  "area_sqkm": 10.4,
-                  "centroid_lat": 25.575,
-                  "centroid_lon": 85.16
-                }
-              ]
-            }
-          ]
-        }
-      ]
+      "name_hi": "बिहार",
+      "name_mr": "बिहार",
+      "code": "BR",
+      "lgd_code": 10,
+      "has_data": false,
+      "districts": []
+    },
+    {
+      "id": "STATE_19",
+      "name": "West Bengal",
+      "name_hi": "पश्चिम बंगाल",
+      "name_mr": "पश्चिम बंगाल",
+      "code": "WB",
+      "lgd_code": 19,
+      "has_data": false,
+      "districts": []
+    },
+    {
+      "id": "STATE_03",
+      "name": "Punjab",
+      "name_hi": "पंजाब",
+      "name_mr": "पंजाब",
+      "code": "PB",
+      "lgd_code": 3,
+      "has_data": false,
+      "districts": []
+    },
+    {
+      "id": "STATE_06",
+      "name": "Haryana",
+      "name_hi": "हरियाणा",
+      "name_mr": "हरियाणा",
+      "code": "HR",
+      "lgd_code": 6,
+      "has_data": false,
+      "districts": []
+    },
+    {
+      "id": "STATE_32",
+      "name": "Kerala",
+      "name_hi": "केरल",
+      "name_mr": "केरळ",
+      "code": "KL",
+      "lgd_code": 32,
+      "has_data": false,
+      "districts": []
+    },
+    {
+      "id": "STATE_21",
+      "name": "Odisha",
+      "name_hi": "ओडिशा",
+      "name_mr": "ओडिशा",
+      "code": "OD",
+      "lgd_code": 21,
+      "has_data": false,
+      "districts": []
+    },
+    {
+      "id": "STATE_18",
+      "name": "Assam",
+      "name_hi": "असम",
+      "name_mr": "आसाम",
+      "code": "AS",
+      "lgd_code": 18,
+      "has_data": false,
+      "districts": []
+    },
+    {
+      "id": "STATE_30",
+      "name": "Goa",
+      "name_hi": "गोवा",
+      "name_mr": "गोवा",
+      "code": "GA",
+      "lgd_code": 30,
+      "has_data": false,
+      "districts": []
     }
   ],
   "districts": [
     {
-      "id": "DIST_001",
+      "id": "DIST_492",
       "name": "Pune",
+      "name_hi": "पुणे",
+      "name_mr": "पुणे",
       "code": "MH-PN",
-      "state": "Maharashtra",
+      "lgd_code": 492,
+      "has_data": true,
       "blocks": [
         {
           "id": "BLK_001",
           "name": "Haveli",
+          "name_hi": "हवेली",
+          "name_mr": "हवेली",
           "code": "MH-PN-HAV",
+          "lgd_code": 4220,
           "mean_elevation_m": 580.5,
+          "has_data": true,
           "panchayats": [
             {
               "id": "PANC_001",
               "name": "Wagholi",
+              "name_hi": "वाघोली",
+              "name_mr": "वाघोली",
               "code": "MH-PN-HAV-WAG",
+              "lgd_code": 187211,
               "elevation_m": 590.0,
               "elevation_delta_m": 9.5,
               "slope_deg": 4.2,
               "aspect": "East",
               "area_sqkm": 14.5,
               "centroid_lat": 18.578,
-              "centroid_lon": 73.98
+              "centroid_lon": 73.98,
+              "has_data": true,
+              "villages": [
+                "Wagholi Gaothan",
+                "Bakori Phata",
+                "Domkhel Wasti",
+                "Kesnand Road Vasti"
+              ]
             },
             {
               "id": "PANC_002",
               "name": "Hadapsar Rural",
+              "name_hi": "हड़पसर ग्रामीण",
+              "name_mr": "हडपसर ग्रामीण",
               "code": "MH-PN-HAV-HAD",
+              "lgd_code": 187212,
               "elevation_m": 560.0,
               "elevation_delta_m": -20.5,
               "slope_deg": 2.1,
               "aspect": "North",
               "area_sqkm": 12.0,
               "centroid_lat": 18.508,
-              "centroid_lon": 73.935
+              "centroid_lon": 73.935,
+              "has_data": true,
+              "villages": [
+                "Hadapsar Gaothan",
+                "Malwadi",
+                "Sasane Nagar"
+              ]
             },
             {
               "id": "PANC_003",
               "name": "Manjari Khurd",
+              "name_hi": "मांजरी खुर्द",
+              "name_mr": "मांजरी खुर्द",
               "code": "MH-PN-HAV-MAN",
+              "lgd_code": 187213,
               "elevation_m": 552.0,
               "elevation_delta_m": -28.5,
               "slope_deg": 1.8,
               "aspect": "East",
               "area_sqkm": 10.8,
               "centroid_lat": 18.525,
-              "centroid_lon": 73.978
+              "centroid_lon": 73.978,
+              "has_data": true,
+              "villages": [
+                "Manjari Gaothan",
+                "Gopalpatti",
+                "Kolwadi Road"
+              ]
             },
             {
               "id": "PANC_004",
               "name": "Phursungi",
+              "name_hi": "फुरसुंगी",
+              "name_mr": "फुरसुंगी",
               "code": "MH-PN-HAV-PHU",
+              "lgd_code": 187214,
               "elevation_m": 575.0,
               "elevation_delta_m": -5.5,
               "slope_deg": 3.5,
               "aspect": "South",
               "area_sqkm": 15.2,
               "centroid_lat": 18.472,
-              "centroid_lon": 73.96
+              "centroid_lon": 73.96,
+              "has_data": true,
+              "villages": [
+                "Phursungi Gaothan",
+                "Bhekrai Nagar",
+                "Harpale Wasti"
+              ]
             },
             {
               "id": "PANC_005",
               "name": "Loni Kalbhor",
+              "name_hi": "लोणी कालभोर",
+              "name_mr": "लोणी काळभोर",
               "code": "MH-PN-HAV-LON",
+              "lgd_code": 187215,
               "elevation_m": 548.0,
               "elevation_delta_m": -32.5,
               "slope_deg": 1.5,
               "aspect": "East",
               "area_sqkm": 18.0,
               "centroid_lat": 18.485,
-              "centroid_lon": 74.02
+              "centroid_lon": 74.02,
+              "has_data": true,
+              "villages": [
+                "Loni Gaothan",
+                "Kadamwak Wasti",
+                "Mali Mala"
+              ]
             },
             {
               "id": "PANC_006",
               "name": "Uruli Kanchan",
+              "name_hi": "उरुली कांचन",
+              "name_mr": "उरुळी कांचन",
               "code": "MH-PN-HAV-URU",
+              "lgd_code": 187216,
               "elevation_m": 540.0,
               "elevation_delta_m": -40.5,
               "slope_deg": 1.2,
               "aspect": "North-East",
               "area_sqkm": 22.4,
               "centroid_lat": 18.488,
-              "centroid_lon": 74.135
+              "centroid_lon": 74.135,
+              "has_data": true,
+              "villages": [
+                "Uruli Gaothan",
+                "BAIF Campus Area",
+                "Kanchan Nagar"
+              ]
             },
             {
               "id": "PANC_007",
               "name": "Khed Shivapur",
+              "name_hi": "खेड शिवापुर",
+              "name_mr": "खेड शिवापूर",
               "code": "MH-PN-HAV-KHE",
+              "lgd_code": 187217,
               "elevation_m": 645.0,
               "elevation_delta_m": 64.5,
               "slope_deg": 8.5,
               "aspect": "South-West",
-              "area_sqkm": 16.8,
-              "centroid_lat": 18.345,
-              "centroid_lon": 73.85
+              "area_sqkm": 16.5,
+              "centroid_lat": 18.35,
+              "centroid_lon": 73.845,
+              "has_data": true,
+              "villages": [
+                "Khed Gaothan",
+                "Dangat Wasti",
+                "Gogalwadi Road"
+              ]
             },
             {
               "id": "PANC_008",
-              "name": "Kondhwa Budruk",
-              "code": "MH-PN-HAV-KON",
-              "elevation_m": 610.0,
-              "elevation_delta_m": 29.5,
-              "slope_deg": 6.1,
-              "aspect": "South-West",
+              "name": "Charholi Budruk",
+              "name_hi": "चऱ्होली बुद्रुक",
+              "name_mr": "चऱ्होली बुद्रुक",
+              "code": "MH-PN-HAV-CHA",
+              "lgd_code": 187218,
+              "elevation_m": 585.0,
+              "elevation_delta_m": 4.5,
+              "slope_deg": 3.1,
+              "aspect": "North",
               "area_sqkm": 11.2,
-              "centroid_lat": 18.455,
-              "centroid_lon": 73.89
+              "centroid_lat": 18.625,
+              "centroid_lon": 73.91,
+              "has_data": false,
+              "villages": [
+                "Charholi Gaothan",
+                "Wadmukhwadi",
+                "Pathare Wasti"
+              ]
             },
             {
               "id": "PANC_009",
-              "name": "Dhayari",
-              "code": "MH-PN-HAV-DHA",
-              "elevation_m": 620.0,
-              "elevation_delta_m": 39.5,
-              "slope_deg": 7.0,
-              "aspect": "West",
+              "name": "Alandi Rural",
+              "name_hi": "आलंदी ग्रामीण",
+              "name_mr": "आळंदी ग्रामीण",
+              "code": "MH-PN-HAV-ALA",
+              "lgd_code": 187219,
+              "elevation_m": 592.0,
+              "elevation_delta_m": 11.5,
+              "slope_deg": 2.8,
+              "aspect": "East",
               "area_sqkm": 9.5,
-              "centroid_lat": 18.442,
-              "centroid_lon": 73.815
+              "centroid_lat": 18.675,
+              "centroid_lon": 73.895,
+              "has_data": false,
+              "villages": [
+                "Alandi Gaothan",
+                "Dudhgaon",
+                "Indrayani Nagar"
+              ]
             },
             {
               "id": "PANC_010",
-              "name": "Nanded Gramin",
-              "code": "MH-PN-HAV-NAN",
-              "elevation_m": 565.0,
-              "elevation_delta_m": -15.5,
-              "slope_deg": 2.8,
-              "aspect": "North",
-              "area_sqkm": 8.4,
-              "centroid_lat": 18.458,
-              "centroid_lon": 73.798
+              "name": "Kesnand",
+              "name_hi": "केसनंद",
+              "name_mr": "केसनंद",
+              "code": "MH-PN-HAV-KES",
+              "lgd_code": 187220,
+              "elevation_m": 610.0,
+              "elevation_delta_m": 29.5,
+              "slope_deg": 5.4,
+              "aspect": "South-East",
+              "area_sqkm": 13.0,
+              "centroid_lat": 18.552,
+              "centroid_lon": 74.045,
+              "has_data": false,
+              "villages": [
+                "Kesnand Gaothan",
+                "Jogeshwari Mandir Area",
+                "Wadekar Wasti"
+              ]
+            },
+            {
+              "id": "PANC_011",
+              "name": "Bakori",
+              "name_hi": "बाकोरी",
+              "name_mr": "बाकोरी",
+              "code": "MH-PN-HAV-BAK",
+              "lgd_code": 187221,
+              "elevation_m": 618.0,
+              "elevation_delta_m": 37.5,
+              "slope_deg": 6.2,
+              "aspect": "East",
+              "area_sqkm": 8.8,
+              "centroid_lat": 18.595,
+              "centroid_lon": 74.02,
+              "has_data": false,
+              "villages": [
+                "Bakori Gaothan",
+                "Hill View Wasti"
+              ]
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "DIST_002",
-      "name": "Patna",
-      "code": "BR-PT",
-      "state": "Bihar",
-      "blocks": [
+        },
         {
-          "id": "BLK_002",
-          "name": "Sampatchak",
-          "code": "BR-PT-SAM",
-          "mean_elevation_m": 51.833333333333336,
-          "panchayats": [
-            {
-              "id": "PANC_101",
-              "name": "Sampatchak Gramin",
-              "code": "BR-PT-SAM-SAM",
-              "elevation_m": 53.0,
-              "elevation_delta_m": 1.2,
-              "slope_deg": 0.8,
-              "aspect": "North",
-              "area_sqkm": 9.2,
-              "centroid_lat": 25.55,
-              "centroid_lon": 85.18
-            },
-            {
-              "id": "PANC_102",
-              "name": "Bairiya",
-              "code": "BR-PT-SAM-BAI",
-              "elevation_m": 51.5,
-              "elevation_delta_m": -0.3,
-              "slope_deg": 0.5,
-              "aspect": "East",
-              "area_sqkm": 7.8,
-              "centroid_lat": 25.565,
-              "centroid_lon": 85.195
-            },
-            {
-              "id": "PANC_103",
-              "name": "Kanhauli",
-              "code": "BR-PT-SAM-KAN",
-              "elevation_m": 54.2,
-              "elevation_delta_m": 2.4,
-              "slope_deg": 1.1,
-              "aspect": "South",
-              "area_sqkm": 8.5,
-              "centroid_lat": 25.535,
-              "centroid_lon": 85.165
-            },
-            {
-              "id": "PANC_104",
-              "name": "Chipura",
-              "code": "BR-PT-SAM-CHI",
-              "elevation_m": 50.8,
-              "elevation_delta_m": -1.0,
-              "slope_deg": 0.4,
-              "aspect": "North-East",
-              "area_sqkm": 6.9,
-              "centroid_lat": 25.542,
-              "centroid_lon": 85.21
-            },
-            {
-              "id": "PANC_105",
-              "name": "Sonagopalpur",
-              "code": "BR-PT-SAM-SON",
-              "elevation_m": 52.0,
-              "elevation_delta_m": 0.2,
-              "slope_deg": 0.6,
-              "aspect": "East",
-              "area_sqkm": 11.0,
-              "centroid_lat": 25.52,
-              "centroid_lon": 85.185
-            },
-            {
-              "id": "PANC_106",
-              "name": "Tarangpur",
-              "code": "BR-PT-SAM-TAR",
-              "elevation_m": 49.5,
-              "elevation_delta_m": -2.3,
-              "slope_deg": 0.3,
-              "aspect": "North",
-              "area_sqkm": 10.4,
-              "centroid_lat": 25.575,
-              "centroid_lon": 85.16
-            }
-          ]
+          "id": "BLK_4221",
+          "name": "Pune City",
+          "name_hi": "पुणे शहर",
+          "name_mr": "पुणे शहर",
+          "code": "MH-PN-CTY",
+          "lgd_code": 4221,
+          "mean_elevation_m": 560.0,
+          "has_data": false,
+          "panchayats": []
+        },
+        {
+          "id": "BLK_4222",
+          "name": "Baramati",
+          "name_hi": "बारामती",
+          "name_mr": "बारामती",
+          "code": "MH-PN-BAR",
+          "lgd_code": 4222,
+          "mean_elevation_m": 538.0,
+          "has_data": false,
+          "panchayats": []
+        },
+        {
+          "id": "BLK_4223",
+          "name": "Daund",
+          "name_hi": "दौंड",
+          "name_mr": "दौंड",
+          "code": "MH-PN-DAU",
+          "lgd_code": 4223,
+          "mean_elevation_m": 514.0,
+          "has_data": false,
+          "panchayats": []
+        },
+        {
+          "id": "BLK_4224",
+          "name": "Indapur",
+          "name_hi": "इंदापुर",
+          "name_mr": "इंदापूर",
+          "code": "MH-PN-IND",
+          "lgd_code": 4224,
+          "mean_elevation_m": 500.0,
+          "has_data": false,
+          "panchayats": []
+        },
+        {
+          "id": "BLK_4225",
+          "name": "Shirur",
+          "name_hi": "शिरूर",
+          "name_mr": "शिरूर",
+          "code": "MH-PN-SHI",
+          "lgd_code": 4225,
+          "mean_elevation_m": 565.0,
+          "has_data": false,
+          "panchayats": []
+        },
+        {
+          "id": "BLK_4226",
+          "name": "Khed (Rajgurunagar)",
+          "name_hi": "खेड",
+          "name_mr": "खेड (राजगुरुनगर)",
+          "code": "MH-PN-KHD",
+          "lgd_code": 4226,
+          "mean_elevation_m": 640.0,
+          "has_data": false,
+          "panchayats": []
+        },
+        {
+          "id": "BLK_4227",
+          "name": "Junnar",
+          "name_hi": "जुन्नर",
+          "name_mr": "जुन्नर",
+          "code": "MH-PN-JUN",
+          "lgd_code": 4227,
+          "mean_elevation_m": 680.0,
+          "has_data": false,
+          "panchayats": []
+        },
+        {
+          "id": "BLK_4228",
+          "name": "Ambegaon",
+          "name_hi": "आंबेगाव",
+          "name_mr": "आंबेगाव",
+          "code": "MH-PN-AMB",
+          "lgd_code": 4228,
+          "mean_elevation_m": 660.0,
+          "has_data": false,
+          "panchayats": []
+        },
+        {
+          "id": "BLK_4229",
+          "name": "Maval",
+          "name_hi": "मावल",
+          "name_mr": "मावळ",
+          "code": "MH-PN-MAV",
+          "lgd_code": 4229,
+          "mean_elevation_m": 620.0,
+          "has_data": false,
+          "panchayats": []
+        },
+        {
+          "id": "BLK_4230",
+          "name": "Mulshi",
+          "name_hi": "मुळशी",
+          "name_mr": "मुळशी",
+          "code": "MH-PN-MUL",
+          "lgd_code": 4230,
+          "mean_elevation_m": 650.0,
+          "has_data": false,
+          "panchayats": []
+        },
+        {
+          "id": "BLK_4231",
+          "name": "Velhe (Rajgad)",
+          "name_hi": "वेल्हे",
+          "name_mr": "वेल्हे (राजगड)",
+          "code": "MH-PN-VEL",
+          "lgd_code": 4231,
+          "mean_elevation_m": 720.0,
+          "has_data": false,
+          "panchayats": []
+        },
+        {
+          "id": "BLK_4232",
+          "name": "Bhor",
+          "name_hi": "भोर",
+          "name_mr": "भोर",
+          "code": "MH-PN-BHO",
+          "lgd_code": 4232,
+          "mean_elevation_m": 590.0,
+          "has_data": false,
+          "panchayats": []
+        },
+        {
+          "id": "BLK_4233",
+          "name": "Purandar (Saswad)",
+          "name_hi": "पुरंदर",
+          "name_mr": "पुरंदर (सासवड)",
+          "code": "MH-PN-PUR",
+          "lgd_code": 4233,
+          "mean_elevation_m": 740.0,
+          "has_data": false,
+          "panchayats": []
         }
       ]
     }

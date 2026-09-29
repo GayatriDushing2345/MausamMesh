@@ -5,58 +5,211 @@
 @tailwind utilities;
 
 :root {
-  --agri-green: #15803D;
-  --agri-sage: #DCFCE7;
-  --ivory-bg: #FAF9F5;
-  --charcoal: #1A202C;
-  --charcoal-muted: #64748B;
-  --weather-blue: #0284C7;
-  --alert-amber: #D97706;
-  --alert-red: #DC2626;
+  --bg-primary: #F6F3EC;
+  --bg-secondary: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-glass: rgba(255, 255, 255, 0.75);
+  --border-glass: rgba(226, 232, 240, 0.8);
+  --border-card: rgba(226, 232, 240, 0.8);
+  
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+  
+  --deep-ink: #0B1F33;
+  --monsoon-teal: #0E7C86;
+  --paddy-green: #2E8B57;
+  --warm-paper: #F6F3EC;
+  --sky-weather: #5BB8F5;
+  --amber-warning: #F5A623;
+  --alert-red: #D64545;
+  
+  --imd-green: #2E9E4F;
+  --imd-yellow: #F2C230;
+  --imd-orange: #F28C28;
+  --imd-red: #D64545;
+
+  --bg-hero: url('/backgrounds/hero.jpg');
+  --bg-map-header: url('/backgrounds/map.jpg');
+  --bg-advisory-header: url('/backgrounds/advisory.jpg');
+  --bg-insights-header: url('/backgrounds/insights.jpg');
+}
+
+.dark {
+  --bg-primary: #080E17;
+  --bg-secondary: #0E1B2C;
+  --bg-card: #122238;
+  --bg-glass: rgba(14, 27, 44, 0.85);
+  --border-glass: rgba(255, 255, 255, 0.12);
+  --border-card: rgba(255, 255, 255, 0.1);
+  
+  --text-primary: #FFFFFF;
+  --text-secondary: #E2E8F0;
+  --text-muted: #94A3B8;
+  
+  --warm-paper: #080E17;
+}
+
+/* Typography Scale (Round 4A) */
+html {
+  font-size: 16px;
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 17px;
+  }
+}
+
+@media (min-width: 1920px) {
+  html {
+    font-size: 19px;
+  }
+}
+
+@media (min-width: 2560px) {
+  html {
+    font-size: 22px;
+  }
+}
+
+/* User Text Scaling Preference (Settings Screen) */
+html[data-text-scale="large"] {
+  font-size: 112.5% !important;
+}
+
+html[data-text-scale="extra-large"] {
+  font-size: 125% !important;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
-  color: var(--charcoal);
-  background-color: var(--ivory-bg);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
   font-family: var(--font-inter), Inter, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Custom scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Glassmorphism Panel Tokens (Fintech / Apple Grade) */
+.glass-panel {
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glass);
+  border-radius: 20px;
+  box-shadow: 0 4px 20px -2px rgba(11, 31, 51, 0.04), 0 1px 2px rgba(11, 31, 51, 0.02);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dark .glass-panel {
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.glass-hero-card {
+  background: rgba(11, 31, 51, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 24px;
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(45, 212, 191, 0.15);
+}
+
+.light .glass-hero-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(14, 124, 134, 0.22);
+  box-shadow: 0 16px 36px -10px rgba(14, 124, 134, 0.14), 0 0 0 1px rgba(14, 124, 134, 0.08);
+}
+
+/* Ambient Topographic Contour Texture */
+.topographic-bg {
+  background-image: radial-gradient(rgba(14, 124, 134, 0.09) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.dark .topographic-bg {
+  background-image: radial-gradient(rgba(45, 212, 191, 0.09) 1px, transparent 0);
+}
+
+/* Scrollbars */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #FAF9F5;
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
+  background: rgba(148, 163, 184, 0.4);
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #15803D;
+  background: #0E7C86;
 }
 
-/* MausamMesh Clean Card Motifs */
-.mausam-card {
-  background: #FFFFFF;
-  border: 1px solid rgba(226, 232, 240, 0.8);
-  border-radius: 16px;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.03), 0 1px 2px -1px rgba(0, 0, 0, 0.03);
-}
-
-.mausam-card-hero {
-  background: #FFFFFF;
-  border: 1.5px solid #15803D;
-  border-radius: 18px;
-  box-shadow: 0 4px 12px -2px rgba(21, 128, 61, 0.08);
-}
-
-/* Leaflet Map overrides */
+/* Leaflet Map Overrides */
 .leaflet-container {
   width: 100%;
   height: 100%;
-  background: #F1F5F9;
-  border-radius: 14px;
+  background: #080E17;
+  border-radius: 16px;
 }
+.light .leaflet-container {
+  background: #F1F5F9;
+}
+
+/* Figma-Grade Card & Surface Design System */
+.mausam-card {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 1.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark .mausam-card {
+  background-color: #0E1B2C;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.45);
+  color: #F8FAFC;
+}
+
+.mausam-card-hero {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 60%, #F0FDFA 100%);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.04);
+}
+
+.dark .mausam-card-hero {
+  background: linear-gradient(135deg, #0F1E32 0%, #12253D 50%, #0A1624 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.65);
+  color: #FFFFFF;
+}
+
+/* Glow & Accent Indicators */
+.glow-teal {
+  box-shadow: 0 0 20px -4px rgba(20, 184, 166, 0.3);
+}
+
+.glow-amber {
+  box-shadow: 0 0 20px -4px rgba(245, 158, 11, 0.3);
+}
+

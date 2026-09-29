@@ -6,38 +6,55 @@ class PanchayatInfo(BaseModel):
     id: str
     name: str
     code: str
-    elevation_m: float
-    elevation_delta_m: float
-    slope_deg: float
-    aspect: str
-    area_sqkm: float
-    centroid_lat: float
-    centroid_lon: float
+    elevation_m: Optional[float] = 575.0
+    elevation_delta_m: Optional[float] = 0.0
+    slope_deg: Optional[float] = 2.0
+    aspect: Optional[str] = "Flat"
+    area_sqkm: Optional[float] = 10.0
+    centroid_lat: Optional[float] = 18.5
+    centroid_lon: Optional[float] = 73.8
+    lgd_code: Optional[int] = None
+    has_data: Optional[bool] = False
+    name_hi: Optional[str] = None
+    name_mr: Optional[str] = None
+    villages: Optional[List[str]] = Field(default_factory=list)
 
 class BlockInfo(BaseModel):
     id: str
     name: str
     code: str
-    mean_elevation_m: float
-    panchayats: List[PanchayatInfo]
+    mean_elevation_m: Optional[float] = 575.0
+    lgd_code: Optional[int] = None
+    has_data: Optional[bool] = False
+    name_hi: Optional[str] = None
+    name_mr: Optional[str] = None
+    panchayats: List[PanchayatInfo] = Field(default_factory=list)
 
 class DistrictInfo(BaseModel):
     id: str
     name: str
     code: str
-    state: str
-    blocks: List[BlockInfo]
+    state: Optional[str] = "Maharashtra"
+    lgd_code: Optional[int] = None
+    has_data: Optional[bool] = False
+    name_hi: Optional[str] = None
+    name_mr: Optional[str] = None
+    blocks: List[BlockInfo] = Field(default_factory=list)
 
 class StateInfo(BaseModel):
     id: str
     name: str
     code: str
-    districts: List[DistrictInfo]
+    lgd_code: Optional[int] = None
+    has_data: Optional[bool] = False
+    name_hi: Optional[str] = None
+    name_mr: Optional[str] = None
+    districts: List[DistrictInfo] = Field(default_factory=list)
 
 class LocationHierarchy(BaseModel):
     country: str = "India"
-    states: List[StateInfo]
-    districts: List[DistrictInfo] = []
+    states: List[StateInfo] = Field(default_factory=list)
+    districts: List[DistrictInfo] = Field(default_factory=list)
 
 
 # --- Forecast Schemas ---
@@ -61,6 +78,11 @@ class DailyForecastItem(BaseModel):
     wind_speed_kmh: float
     condition: str
     risk_level: str
+    validation_status: str = "validated"  # 'validated' (lead 1-5) or 'indicative' (lead 0, 6, 7)
+    prob_rain_2_5mm: float = 0.0
+    prob_rain_15_6mm: float = 0.0
+    prob_rain_64_5mm: float = 0.0
+    range_label: str = "90% range"
 
 class PanchayatForecastResponse(BaseModel):
     panchayat_id: str
@@ -83,6 +105,15 @@ class PanchayatForecastResponse(BaseModel):
     winds_telemetry_status: str = "Connected (WINDS ARG Active)"  # USP 4
     five_day_forecast: List[DailyForecastItem]
     risk_summary: str
+    # Round 4B Evidence & Honesty Tokens
+    panchayat_vs_block_rain_delta: float = 0.0
+    panchayat_vs_block_temp_delta: float = 0.0
+    evidence_chips: List[Any] = []
+    evidence_sentence: str = ""
+    model_used: str = "xgboost"  # 'xgboost' or 'baseline'
+    baseline_fallback_reason: Optional[str] = None
+    waterlogging_risk: Optional[str] = None  # Indicative
+    thunderstorm_risk: Optional[str] = None
 
 
 # --- Map Schemas ---
@@ -254,3 +285,137 @@ class RetrainResponse(BaseModel):
     new_mae: float
     new_rmse: float
     samples_trained: int
+
+
+# --- Priority Queue Schemas (USP 1 Core) ---
+class PriorityFactorContribution(BaseModel):
+    value: float
+    weight: float
+    contribution_points: float
+
+class PriorityReason(BaseModel):
+    key: str
+    params: Dict[str, Any] = {}
+
+class PriorityForecastSnippet(BaseModel):
+    rain_mm: float
+    rain_upper_mm: float
+    imd_category: str
+    temp_max_c: float
+    wind_speed_kmh: float
+
+class PriorityConfidenceSnippet(BaseModel):
+    level: str
+    interval_width_mm: float
+
+class PriorityCropSnippet(BaseModel):
+    name: str
+    stage: str
+
+class PriorityExposureSnippet(BaseModel):
+    agri_area_ha: Optional[float] = None
+    farm_households: Optional[int] = None
+    source: str = "demo"
+
+class PriorityQueueItem(BaseModel):
+    rank: int
+    panchayat_id: str
+    name: str
+    block_name: str
+    district_name: str
+    state_name: str
+    score: float
+    tier: str  # Very High, High, Medium, Low
+    primary_hazard: str  # rain, heat, wind
+    forecast: PriorityForecastSnippet
+    confidence: PriorityConfidenceSnippet
+    factors: Dict[str, PriorityFactorContribution]
+    reasons: List[PriorityReason]
+    flags: List[str] = []
+    crop: PriorityCropSnippet
+    exposure: PriorityExposureSnippet
+    recommended_action_key: str
+
+class PriorityQueueSummary(BaseModel):
+    total_panchayats: int
+    very_high: int
+    high: int
+    medium: int
+    low: int
+
+class PriorityQueueResponse(BaseModel):
+    generated_at: str
+    scope: str
+    lead_day: int
+    data_mode: str = "demo"
+    weights: Dict[str, float]
+    thresholds: Dict[str, float]
+    summary: PriorityQueueSummary
+    items: List[PriorityQueueItem]
+
+class PriorityConfigResponse(BaseModel):
+    weights: Dict[str, float]
+    thresholds: Dict[str, float]
+    data_sources: Dict[str, str]
+
+
+# --- Round 4A: Location Explorer Schemas ---
+class LocationTreeNode(BaseModel):
+    id: str
+    name: str
+    name_hi: Optional[str] = None
+    name_mr: Optional[str] = None
+    level: str  # 'state', 'district', 'block', 'panchayat'
+    parent_id: Optional[str] = None
+    lgd_code: Optional[int] = None
+    has_data: bool = False
+    item_count: int = 0
+    data_status: str = "not_loaded"  # 'demo', 'live', 'not_loaded'
+    villages_count: int = 0
+    villages: List[str] = []
+    centroid_lat: Optional[float] = None
+    centroid_lon: Optional[float] = None
+
+class LocationSearchItem(BaseModel):
+    id: str
+    name: str
+    level: str
+    full_path: str
+    has_data: bool
+    gp_id: str
+    gp_name: str
+    lgd_code: Optional[int] = None
+    message: Optional[str] = None
+
+
+# --- Round 4B: Data Health & CSV Upload Schemas ---
+class DataSourceHealthItem(BaseModel):
+    name: str
+    status: str  # 'nominal', 'degraded', 'offline'
+    last_updated: str
+    coverage: str
+    missing_inputs: List[str] = []
+    fallback_in_use: Optional[str] = None
+
+class DataHealthResponse(BaseModel):
+    overall_status: str  # 'green', 'amber', 'red'
+    sources: List[DataSourceHealthItem]
+    last_checked: str
+    active_fallbacks: List[str] = []
+
+class CSVRowError(BaseModel):
+    row: int
+    column: str
+    value: str
+    message: str
+
+class BlockForecastUploadResponse(BaseModel):
+    status: str  # 'valid', 'errors', 'success'
+    total_rows: int
+    valid_rows: int
+    errors: List[CSVRowError] = []
+    preview: List[Dict[str, Any]] = []
+    dataset_id: Optional[str] = None
+    is_custom_input: bool = True
+
+

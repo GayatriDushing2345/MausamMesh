@@ -1,0 +1,171 @@
+{
+  "system": {
+    "title": "మౌసమ్‌సేతు",
+    "subtitle": "పంచాయతీ వాతావరణ సమాచారం",
+    "portal_title": "మౌసమ్‌సేతు ఆగ్రోమెట్ కంట్రోల్ రూమ్",
+    "portal_subtitle": "IMD முன்னறிவிப்பிலிருந்து சரிபார்க்கப்பட்ட பஞ்சாயத்து நடவடிக்கை வரை",
+    "tagline": "IMD முன்னறிவிப்பிலிருந்து சரிபார்க்கப்பட்ட பஞ்சாயத்து நடவடிக்கை வரை.",
+    "slogan": "பரந்த முன்னறிவிப்பு → உள்ளூர் நுண்ணறிவு → சரிபார்க்கப்பட்ட நடவடிக்கை",
+    "demo_data_badge": "Demo Telemetry",
+    "live_data_badge": "WINDS Live",
+    "changed_dot": "Updated"
+  },
+  "nav": {
+    "dashboard": "హోమ్",
+    "map": "ప్రాధాన్యత మ్యాప్",
+    "analysis": "వాతావరణ విశ్లేషణ",
+    "advisory": "పంట సలహా",
+    "reliability": "మోడల్ ఖచ్చితత్వం",
+    "settings": "సెట్టింగ్‌లు",
+    "more": "மேலும்",
+    "control_navigation": "Control Navigation"
+  },
+  "key_insight": {
+    "label": "முக்கிய செய்தி",
+    "home_heavy_rain": "நாளை {panchayat} பகுதியில் கனமழை ({rain_mm} மி.மீ) எதிர்பார்க்கப்படுகிறது. வடிகால் வசதியை உடனடியாக சரிசெய்யவும்.",
+    "home_moderate_rain": "நாளை {panchayat} பகுதியில் மிதமான மழை ({rain_mm} மி.மீ). பூச்சிக்கொல்லி தெளிப்பதை ஒத்திவைக்கவும்.",
+    "home_light_rain": "{panchayat} பகுதியில் லேசான மழை ({rain_mm} மி.மீ). வழக்கமான விவசாய பணிகளை தொடரலாம்.",
+    "home_no_rain": "Dry conditions expected in {panchayat}. Maintain scheduled drip irrigation and inspect crops for moisture stress.",
+    "map_priority": "Panchayat Priority Queue: {very_high} Panchayats require immediate DAMU inspection (Top: {top_panchayat} with Score {top_score}).",
+    "analysis_downscaling": "Spatial XGBoost reduces baseline MAE by {mae_reduction}% in complex terrain across {block} block.",
+    "advisory_status": "{pending_count} agro-advisory bulletins pending DAMU officer approval before scheduled SMS broadcast.",
+    "reliability_gate": "Leave-One-Station-Out (LOSO) Skill Gate active: 100% of stations passing baseline accuracy threshold."
+  },
+  "glossary": {
+    "conformal_range": "90% Conformal Range",
+    "conformal_range_desc": "Statistically guaranteed 90% confidence interval under split-conformal regression UQ, ensuring actual rainfall falls within this band 9 out of 10 times.",
+    "mint": "MinT Coherence",
+    "mint_desc": "Minimum Trace hierarchical forecast reconciliation. Projects independent Panchayat predictions onto the linear subspace of the official IMD Block baseline so they sum perfectly.",
+    "csi": "Critical Success Index (CSI)",
+    "csi_desc": "Evaluates heavy rainfall event prediction skill. A CSI of 0.92 indicates high hit rate and very low false alarm ratio.",
+    "mae": "Mean Absolute Error (MAE)",
+    "mae_desc": "Average magnitude of forecast errors in mm. MAE reduction shows percentage error reduction compared to flat block forecasts.",
+    "residual": "Residual Delta",
+    "residual_desc": "The local rainfall adjustment in mm driven by micro-topography (elevation, slope, wind aspect) added to the coarse block baseline.",
+    "downscaling": "Spatial Downscaling",
+    "downscaling_desc": "Refining coarse 10-25 km IMD block forecasts down to 1 km² Panchayat resolution using high-resolution SRTM 30m digital elevation."
+  },
+  "imd": {
+    "categories_title": "Official IMD Daily Rainfall Threshold Categories",
+    "no_rain": "No Rain",
+    "very_light": "Very Light Rain",
+    "light": "Light Rain",
+    "moderate": "Moderate Rain",
+    "heavy": "Heavy Rain",
+    "very_heavy": "Very Heavy Rain",
+    "extremely_heavy": "Extremely Heavy Rain",
+    "threshold_link": "IMD rainfall categories"
+  },
+  "priority": {
+    "title": "Panchayat Priority Queue",
+    "subtitle": "Needs Attention First (Core USP)",
+    "open_queue": "Open Priority Queue →",
+    "score": "Priority Score",
+    "rank": "Rank",
+    "tier": "Priority Tier",
+    "very_high": "மிக அதிகம்",
+    "high": "அதிகம்",
+    "medium": "நடுத்தரம்",
+    "low": "குறைவு",
+    "tune_weights": "Tune Factor Weights",
+    "export_csv": "Export CSV",
+    "download_csv": "Download Queue (CSV)",
+    "verify_before_dispatch": "Verify Before Dispatch",
+    "verify_before_dispatch_desc": "Forecast uncertainty is high (conformal range > 6mm). Ground verification recommended before automated dispatch.",
+    "partial_data": "Partial Exposure Data",
+    "partial_data_desc": "Missing ground census profile; factor weights dynamically renormalized.",
+    "why_this_rank": "Why This Rank (Factor Contributions)",
+    "factors": {
+      "weather_severity": "Weather Severity (35%)",
+      "crop_vulnerability": "Crop Vulnerability (25%)",
+      "potential_impact": "Potential Impact (15%)",
+      "exposed_area": "Exposed Area (15%)",
+      "farm_households": "Farm Households (10%)"
+    },
+    "reasons": {
+      "heavy_rain": "Heavy rain expected ({rain_mm} mm upper bound)",
+      "moderate_rain": "Moderate rainfall spell expected ({rain_mm} mm)",
+      "mature_crop_sensitive": "{crop} at sensitive {stage} stage",
+      "poor_drainage": "Low-lying elevation with poor surface drainage",
+      "steep_slope_runoff": "Steep terrain slope susceptible to heavy surface runoff",
+      "high_cumulative_risk": "High cumulative risk across weather & crop factors",
+      "routine": "Low risk; routine field operations recommended"
+    }
+  },
+  "weather": {
+    "precipitation": "Precipitation",
+    "temp": "Temperature",
+    "humidity": "Humidity",
+    "wind": "Wind Speed",
+    "lead_day": "Lead Day {day}",
+    "block_baseline": "Block Baseline",
+    "panchayat_downscaled": "Panchayat Downscaled",
+    "units": {
+      "mm": "mm",
+      "celsius": "°C",
+      "percent": "%",
+      "kmh": "km/h"
+    }
+  },
+  "crops": {
+    "cotton": "ప్రత్తి",
+    "soybean": "సోయాబీన్",
+    "tomato": "தக்காளி",
+    "paddy": "వరి",
+    "sugarcane": "చెరకు",
+    "stages": {
+      "vegetative": "Vegetative",
+      "flowering": "Flowering & Podging",
+      "maturity": "Maturity & Harvest",
+      "pod_formation": "Pod Formation"
+    }
+  },
+  "voice": {
+    "mic_button_label": "Voice Assistant (Click to Speak)",
+    "listening": "Listening... Speak your weather query",
+    "interim_label": "Listening to voice input:",
+    "cancel": "Cancel",
+    "read_aloud": "Read Aloud",
+    "stop_reading": "Stop",
+    "unsupported": "Voice input is not supported in this browser. Please type your query.",
+    "permission_denied": "Microphone permission was denied. Please allow microphone access in your browser settings.",
+    "intents": {
+      "weather_query": "The forecast for {panchayat} tomorrow predicts {rain_mm} mm of rain, with temperatures around {temp}°C.",
+      "priority_query": "The top 3 panchayats needing attention first are {top1}, {top2}, and {top3}. Wagholi has the highest score of {score}.",
+      "advisory_query": "For {crop} in {stage} stage, postpone pesticide spraying and clear field drainage trenches before rain.",
+      "reliability_query": "The forecast confidence is high with a 90% conformal range of ±1.4 mm and 92% Critical Success Index.",
+      "nav_map": "Opening the Priority Map now.",
+      "nav_forecast": "Opening Forecast Analysis.",
+      "nav_advisory": "Opening Crop Advisory.",
+      "nav_settings": "Opening Settings.",
+      "report_download": "Initiating your MausamMesh PDF bulletin download.",
+      "fallback": "I did not understand that. You can ask: 'What is the weather tomorrow?', 'Which panchayats need attention first?', or 'What should farmers do?'"
+    }
+  },
+  "actions": {
+    "download_report": "Download PDF Report",
+    "downloading": "Generating PDF...",
+    "explore_map": "Open Priority Map →",
+    "view_analysis": "Analyze Skill Metrics →",
+    "review_advisory": "View Advisory Details →",
+    "verify_reliability": "Inspect Model Reliability →",
+    "approve_dispatch": "Approve & Dispatch Channel Advisories",
+    "search_placeholder": "Search Panchayat, Village, or District... (Ctrl+K)",
+    "close": "Close",
+    "more": "More",
+    "tune_sliders": "Custom Factor Sliders",
+    "reset_weights": "Reset to Default",
+    "apply_weights": "Apply Weights"
+  },
+  "settings": {
+    "title": "System Settings & Preferences",
+    "theme_title": "Color Theme",
+    "day_mode": "Day Mode (Light Paper)",
+    "night_mode": "Night Ops (Deep Ink)",
+    "language_title": "Portal Language",
+    "digits_title": "Native Indic Digits",
+    "digits_desc": "Display numbers in native Indic script (e.g. ०, १, २, ३)",
+    "cache_clear": "Clear Local Storage Cache",
+    "cache_cleared": "Cache Cleared Successfully"
+  }
+}

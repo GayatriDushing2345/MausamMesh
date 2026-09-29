@@ -22,3 +22,11 @@ env/
 .env.production.local
 .DS_Store
 Thumbs.db
+*.tsbuildinfo
+
+# Temporary test & debug outputs
+debug_*.pdf
+test_*.pdf
+test_*.html
+*.log
+frontend/test_out.css

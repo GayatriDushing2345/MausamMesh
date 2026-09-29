@@ -5,7 +5,13 @@ import {
   ModelReliabilityResponse,
   AdvisoryResponse,
   ComparisonResponse,
-  DAMUApprovalResponse
+  DAMUApprovalResponse,
+  PriorityQueueResponse,
+  PriorityConfigResponse,
+  LocationTreeNode,
+  LocationSearchItem,
+  DataHealthResponse,
+  BlockForecastUploadResponse
 } from './types';
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000/api/v1';
@@ -79,3 +85,101 @@ export async function approveAdvisoryByDAMUOfficer(
 export function getReportDownloadUrl(panchayatId: string, cropName: string = 'Cotton', lang: string = 'en'): string {
   return `${API_BASE}/panchayats/${panchayatId}/report?crop=${encodeURIComponent(cropName)}&lang=${encodeURIComponent(lang)}`;
 }
+
+// Priority Queue API Callers
+export async function fetchPriorityQueue(
+  blockId?: string,
+  districtId?: string,
+  leadDay: number = 1,
+  hazard: string = 'all',
+  crop: string = 'all',
+  weights?: Record<string, number>
+): Promise<PriorityQueueResponse> {
+  const params = new URLSearchParams();
+  if (blockId) params.append('block_id', blockId);
+  if (districtId) params.append('district_id', districtId);
+  params.append('lead_day', String(leadDay));
+  if (hazard && hazard !== 'all') params.append('hazard', hazard);
+  if (crop && crop !== 'all') params.append('crop', crop);
+  if (weights) {
+    const weightsStr = Object.entries(weights).map(([k, v]) => `${k}=${v}`).join(',');
+    params.append('weights', weightsStr);
+  }
+
+  const res = await fetch(`${API_BASE}/v1/priority-queue?${params.toString()}`);
+  if (!res.ok) {
+    const errData = await res.json().catch(() => ({}));
+    throw new Error(errData.detail || 'Failed to fetch priority queue');
+  }
+  return res.json();
+}
+
+export async function fetchPriorityConfig(): Promise<PriorityConfigResponse> {
+  const res = await fetch(`${API_BASE}/v1/priority-queue/config`);
+  if (!res.ok) throw new Error('Failed to fetch priority config');
+  return res.json();
+}
+
+export function getPriorityCsvExportUrl(
+  blockId?: string,
+  districtId?: string,
+  leadDay: number = 1,
+  hazard: string = 'all',
+  crop: string = 'all',
+  weights?: Record<string, number>
+): string {
+  const params = new URLSearchParams();
+  if (blockId) params.append('block_id', blockId);
+  if (districtId) params.append('district_id', districtId);
+  params.append('lead_day', String(leadDay));
+  if (hazard && hazard !== 'all') params.append('hazard', hazard);
+  if (crop && crop !== 'all') params.append('crop', crop);
+  if (weights) {
+    const weightsStr = Object.entries(weights).map(([k, v]) => `${k}=${v}`).join(',');
+    params.append('weights', weightsStr);
+  }
+  return `${API_BASE}/v1/priority-queue/export.csv?${params.toString()}`;
+}
+
+// --- ROUND 4A & 4B API Methods ---
+export async function fetchLocationTree(level: 'state' | 'district' | 'block' | 'panchayat' = 'state', parentId?: string): Promise<LocationTreeNode[]> {
+  const params = new URLSearchParams({ level });
+  if (parentId) params.append('parent_id', parentId);
+  const res = await fetch(`${API_BASE}/locations/tree?${params.toString()}`);
+  if (!res.ok) throw new Error('Failed to fetch location tree');
+  return res.json();
+}
+
+export async function searchLocations(q: string, lang: string = 'en'): Promise<LocationSearchItem[]> {
+  const params = new URLSearchParams({ q, lang });
+  const res = await fetch(`${API_BASE}/locations/search?${params.toString()}`);
+  if (!res.ok) throw new Error('Failed to search locations');
+  return res.json();
+}
+
+export async function fetchNearestLocation(lat: number, lon: number): Promise<LocationSearchItem | null> {
+  const params = new URLSearchParams({ lat: String(lat), lon: String(lon) });
+  const res = await fetch(`${API_BASE}/locations/nearest?${params.toString()}`);
+  if (!res.ok) return null;
+  return res.json();
+}
+
+export async function fetchDataHealth(): Promise<DataHealthResponse> {
+  const res = await fetch(`${API_BASE}/system/data-health`);
+  if (!res.ok) throw new Error('Failed to fetch data health');
+  return res.json();
+}
+
+export async function uploadBlockForecastCSV(csvContent: string, dryRun: boolean = false): Promise<BlockForecastUploadResponse> {
+  const res = await fetch(`${API_BASE}/block-forecast/upload`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ csv_content: csvContent, dry_run: dryRun })
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new Error(err.detail || 'Failed to upload CSV');
+  }
+  return res.json();
+}
+

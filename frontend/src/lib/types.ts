@@ -60,6 +60,11 @@ export interface DailyForecastItem {
   wind_speed_kmh: number;
   condition: string;
   risk_level: 'Low' | 'Moderate' | 'High' | 'Severe';
+  validation_status?: 'validated' | 'indicative';
+  prob_rain_2_5mm?: number;
+  prob_rain_15_6mm?: number;
+  prob_rain_64_5mm?: number;
+  range_label?: string;
 }
 
 export interface PanchayatForecastResponse {
@@ -83,6 +88,14 @@ export interface PanchayatForecastResponse {
   winds_telemetry_status: string;
   five_day_forecast: DailyForecastItem[];
   risk_summary: string;
+  panchayat_vs_block_rain_delta?: number;
+  panchayat_vs_block_temp_delta?: number;
+  evidence_chips?: any[];
+  evidence_sentence?: string;
+  model_used?: 'xgboost' | 'baseline' | string;
+  baseline_fallback_reason?: string | null;
+  waterlogging_risk?: string | null;
+  thunderstorm_risk?: string | null;
 }
 
 export interface MapFeatureProperties {
@@ -98,6 +111,8 @@ export interface MapFeatureProperties {
   risk_level: string;
   elevation_m: number;
   is_mint_reconciled?: boolean;
+  priority_tier?: 'Very High' | 'High' | 'Medium' | 'Low';
+  priority_score?: number;
 }
 
 export interface MapFeature {
@@ -216,3 +231,148 @@ export interface DAMUApprovalResponse {
   approved_at: string;
   dispatched_channels: string[];
 }
+
+// --- Priority Queue Schemas (USP 1 Core) ---
+export interface PriorityFactorContribution {
+  value: number;
+  weight: number;
+  contribution_points: number;
+}
+
+export interface PriorityReason {
+  key: string;
+  params: Record<string, any>;
+}
+
+export interface PriorityForecastSnippet {
+  rain_mm: number;
+  rain_upper_mm: number;
+  imd_category: string;
+  temp_max_c: number;
+  wind_speed_kmh: number;
+}
+
+export interface PriorityConfidenceSnippet {
+  level: string;
+  interval_width_mm: number;
+}
+
+export interface PriorityCropSnippet {
+  name: string;
+  stage: string;
+}
+
+export interface PriorityExposureSnippet {
+  agri_area_ha?: number;
+  farm_households?: number;
+  source: string;
+}
+
+export interface PriorityQueueItem {
+  rank: number;
+  panchayat_id: string;
+  name: string;
+  block_name: string;
+  district_name: string;
+  state_name: string;
+  score: number;
+  tier: 'Very High' | 'High' | 'Medium' | 'Low';
+  primary_hazard: 'rain' | 'heat' | 'wind';
+  forecast: PriorityForecastSnippet;
+  confidence: PriorityConfidenceSnippet;
+  factors: Record<string, PriorityFactorContribution>;
+  reasons: PriorityReason[];
+  flags: string[];
+  crop: PriorityCropSnippet;
+  exposure: PriorityExposureSnippet;
+  recommended_action_key: string;
+}
+
+export interface PriorityQueueSummary {
+  total_panchayats: number;
+  very_high: number;
+  high: number;
+  medium: number;
+  low: number;
+}
+
+export interface PriorityQueueResponse {
+  generated_at: string;
+  scope: string;
+  lead_day: number;
+  data_mode: 'demo' | 'live';
+  weights: Record<string, number>;
+  thresholds: Record<string, number>;
+  summary: PriorityQueueSummary;
+  items: PriorityQueueItem[];
+}
+
+export interface PriorityConfigResponse {
+  weights: Record<string, number>;
+  thresholds: Record<string, number>;
+  data_sources: Record<string, string>;
+}
+
+// --- ROUND 4A & 4B Types ---
+export interface LocationTreeNode {
+  id: string;
+  name: string;
+  name_hi?: string;
+  name_mr?: string;
+  level: 'state' | 'district' | 'block' | 'panchayat';
+  parent_id?: string | null;
+  lgd_code?: number | null;
+  has_data: boolean;
+  item_count: number;
+  data_status: 'demo' | 'live' | 'not_loaded';
+  villages_count: number;
+  villages: string[];
+  centroid_lat?: number | null;
+  centroid_lon?: number | null;
+}
+
+export interface LocationSearchItem {
+  id: string;
+  name: string;
+  level: string;
+  full_path: string;
+  has_data: boolean;
+  gp_id: string;
+  gp_name: string;
+  lgd_code?: number | null;
+  message?: string | null;
+}
+
+export interface DataSourceHealthItem {
+  name: string;
+  status: 'nominal' | 'degraded' | 'offline';
+  last_updated: string;
+  coverage: string;
+  missing_inputs: string[];
+  fallback_in_use?: string | null;
+}
+
+export interface DataHealthResponse {
+  overall_status: 'green' | 'amber' | 'red';
+  sources: DataSourceHealthItem[];
+  last_checked: string;
+  active_fallbacks: string[];
+}
+
+export interface CSVRowError {
+  row: number;
+  column: string;
+  value: string;
+  message: string;
+}
+
+export interface BlockForecastUploadResponse {
+  status: 'valid' | 'errors' | 'success';
+  total_rows: number;
+  valid_rows: number;
+  errors: CSVRowError[];
+  preview: Record<string, any>[];
+  dataset_id?: string | null;
+  is_custom_input: boolean;
+}
+

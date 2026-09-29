@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
-import { Language, translations } from '@/lib/i18n';
+import React, { useState, useEffect } from 'react';
+import { Language, translations, SUPPORTED_LANGUAGES } from '@/lib/i18n';
 import { 
   Globe, 
   Thermometer, 
@@ -14,6 +14,8 @@ import {
   Bell,
   Cpu
 } from 'lucide-react';
+import { KeyInsight } from './KeyInsight';
+import { BlockForecastUploadCard } from './BlockForecastUploadCard';
 
 interface SettingsScreenProps {
   activeLanguage: Language;
@@ -29,11 +31,48 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
   const [demoMode, setDemoMode] = useState<boolean>(true);
   const [autoRefresh, setAutoRefresh] = useState<boolean>(true);
   const [notifications, setNotifications] = useState<boolean>(true);
+  const [textScale, setTextScale] = useState<'normal' | 'large' | 'extra-large'>('normal');
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('mausammesh_text_scale') as 'normal' | 'large' | 'extra-large' | null;
+      if (saved) {
+        setTextScale(saved);
+        if (saved !== 'normal') {
+          document.documentElement.setAttribute('data-text-scale', saved);
+        } else {
+          document.documentElement.removeAttribute('data-text-scale');
+        }
+      }
+    } catch (e) {
+      // localStorage error fallback
+    }
+  }, []);
+
+  const handleTextScaleChange = (scale: 'normal' | 'large' | 'extra-large') => {
+    setTextScale(scale);
+    try {
+      localStorage.setItem('mausammesh_text_scale', scale);
+      if (scale !== 'normal') {
+        document.documentElement.setAttribute('data-text-scale', scale);
+      } else {
+        document.documentElement.removeAttribute('data-text-scale');
+      }
+    } catch (e) {
+      // ignore
+    }
+  };
 
   const t = translations[activeLanguage] || translations.en;
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-6 space-y-6">
+    <div className="w-full space-y-6 pb-8">
+      {/* 0. LEVEL 1 KEY INSIGHT BANNER */}
+      <KeyInsight
+        title="System Status & Multilingual Architecture"
+        message="Local telemetry operational. 11 Indian regional languages available with offline fallback and Web Speech API voice synthesis."
+        severity="green"
+      />
       
       {/* Header Banner */}
       <div className="mausam-card p-5 rounded-2xl flex items-center justify-between">
@@ -66,30 +105,26 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
             </div>
             <div>
               <h3 className="font-extrabold text-slate-900 text-sm">Language &amp; Localization</h3>
-              <p className="text-xs text-slate-400">Select display language for interface &amp; advisory bulletins</p>
+              <p className="text-xs text-slate-400">Select display language for interface &amp; advisory bulletins (11 Indian languages)</p>
             </div>
           </div>
 
           <div className="space-y-3 text-xs">
             <label className="block text-slate-700 font-bold">Active Interface Language:</label>
-            <div className="grid grid-cols-3 gap-2">
-              {[
-                { code: 'en', label: 'English', sub: 'EN' },
-                { code: 'hi', label: 'हिन्दी', sub: 'HI' },
-                { code: 'mr', label: 'मराठी', sub: 'MR' }
-              ].map((lang) => (
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 max-h-56 overflow-y-auto pr-1">
+              {SUPPORTED_LANGUAGES.map((lang) => (
                 <button
                   key={lang.code}
                   onClick={() => onLanguageChange(lang.code as Language)}
-                  className={`p-3 rounded-xl border text-center font-bold transition-all ${
+                  className={`p-2.5 rounded-xl border text-center font-bold transition-all ${
                     activeLanguage === lang.code
                       ? 'bg-emerald-700 text-white border-emerald-800 shadow-xs'
                       : 'bg-white text-slate-800 border-slate-200 hover:bg-slate-50'
                   }`}
                 >
-                  <div className="text-sm">{lang.label}</div>
+                  <div className="text-xs font-bold truncate">{lang.nativeName}</div>
                   <div className={`text-[10px] mt-0.5 ${activeLanguage === lang.code ? 'text-emerald-100' : 'text-slate-400'}`}>
-                    ({lang.sub})
+                    {lang.nameEn}
                   </div>
                 </button>
               ))}
@@ -151,6 +186,27 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
                 >
                   °F
                 </button>
+              </div>
+            </div>
+
+            {/* Text Size Scale (Round 4A) */}
+            <div className="flex justify-between items-center bg-[#FAF9F5] p-3 rounded-xl border border-slate-200/80">
+              <div>
+                <span className="font-bold text-slate-900 block">Interface Text Scaling</span>
+                <span className="text-[11px] text-slate-500">Normal (100%) • Large (112.5%) • Extra Large (125%)</span>
+              </div>
+              <div className="flex bg-white rounded-lg p-1 border border-slate-200">
+                {(['normal', 'large', 'extra-large'] as const).map((scale) => (
+                  <button
+                    key={scale}
+                    onClick={() => handleTextScaleChange(scale)}
+                    className={`px-2.5 py-1 rounded font-bold text-xs capitalize ${
+                      textScale === scale ? 'bg-emerald-700 text-white' : 'text-slate-600 hover:text-slate-900'
+                    }`}
+                  >
+                    {scale === 'extra-large' ? 'XL' : scale}
+                  </button>
+                ))}
               </div>
             </div>
           </div>
@@ -235,6 +291,9 @@ export const SettingsScreen: React.FC<SettingsScreenProps> = ({
         </div>
 
       </div>
+
+      {/* Card 5: Official Block Forecast CSV Ingestion (ROUND 4B) */}
+      <BlockForecastUploadCard />
 
     </div>
   );
