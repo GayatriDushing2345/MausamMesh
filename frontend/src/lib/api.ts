@@ -14,7 +14,11 @@ import {
   BlockForecastUploadResponse
 } from './types';
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000/api/v1';
+export const LIVE_BACKEND_URL = 'https://mausammesh.onrender.com/api/v1';
+
+const API_BASE = (process.env.NEXT_PUBLIC_API_URL && process.env.NEXT_PUBLIC_API_URL.startsWith('http'))
+  ? process.env.NEXT_PUBLIC_API_URL.replace(/\/$/, '')
+  : LIVE_BACKEND_URL;
 
 // In-memory cache for ultra-fast tab switches and instant responses
 const memoryCache = new Map<string, { data: any; expiry: number }>();
@@ -150,7 +154,8 @@ export async function approveAdvisoryByDAMUOfficer(
 }
 
 export function getReportDownloadUrl(panchayatId: string, cropName: string = 'Cotton', lang: string = 'en'): string {
-  return `${API_BASE}/panchayats/${panchayatId}/report?crop=${encodeURIComponent(cropName)}&lang=${encodeURIComponent(lang)}`;
+  const base = API_BASE.startsWith('http') ? API_BASE : LIVE_BACKEND_URL;
+  return `${base}/panchayats/${panchayatId}/report?crop=${encodeURIComponent(cropName)}&lang=${encodeURIComponent(lang)}`;
 }
 
 // Priority Queue API Callers
