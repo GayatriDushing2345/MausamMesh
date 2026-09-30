@@ -42,6 +42,7 @@ export default function Home() {
 
   const [loadingLocations, setLoadingLocations] = useState<boolean>(true);
   const [loadingData, setLoadingData] = useState<boolean>(true);
+  const [isWakingUp, setIsWakingUp] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
   // Restore persistent state (language, location, theme, URL params) on mount
@@ -155,6 +156,11 @@ export default function Home() {
   useEffect(() => {
     if (!selectedPanchayat) return;
 
+    let isMounted = true;
+    const wakeTimer = setTimeout(() => {
+      if (isMounted) setIsWakingUp(true);
+    }, 2000);
+
     async function loadPanchayatData() {
       try {
         setLoadingData(true);
@@ -163,17 +169,30 @@ export default function Home() {
           fetchPanchayatForecast(selectedPanchayat),
           fetchPanchayatMap(selectedPanchayat)
         ]);
-        setForecast(fc);
-        setMapData(mp);
+        if (isMounted) {
+          setForecast(fc);
+          setMapData(mp);
+        }
       } catch (err: any) {
-        console.error("Data load error:", err);
-        setError(err.message || "Failed to load forecast data");
+        if (isMounted) {
+          console.error("Data load error:", err);
+          setError(err.message || "Failed to load forecast data");
+        }
       } finally {
-        setLoadingData(false);
+        if (isMounted) {
+          clearTimeout(wakeTimer);
+          setIsWakingUp(false);
+          setLoadingData(false);
+        }
       }
     }
 
     loadPanchayatData();
+
+    return () => {
+      isMounted = false;
+      clearTimeout(wakeTimer);
+    };
   }, [selectedPanchayat]);
 
   // Handlers for Location Selector Drilldown
@@ -289,9 +308,22 @@ export default function Home() {
           leadDay={leadDay}
         />
 
+        {isWakingUp && !forecast && (
+          <div className="bg-gradient-to-r from-teal-700 via-cyan-700 to-teal-800 text-white px-4 py-2.5 text-xs text-center font-bold flex items-center justify-center gap-2 shadow-sm animate-pulse">
+            <span className="w-2.5 h-2.5 rounded-full bg-amber-300 animate-ping" />
+            <span>Connecting to MausamMesh Cloud Server... (Free-tier cloud engine spins up in ~25s on first request, subsequent requests are instant)</span>
+          </div>
+        )}
+
         {error && (
-          <div className="bg-red-600 text-white px-4 py-2 text-xs text-center font-bold">
-            ⚠️ {error}. Ensure FastAPI backend is running at <code>http://127.0.0.1:8000</code>.
+          <div className="bg-red-600 text-white px-4 py-2 text-xs text-center font-bold flex items-center justify-center gap-2">
+            <span>⚠️ {error}</span>
+            <button
+              onClick={() => window.location.reload()}
+              className="underline hover:text-red-100 ml-2 cursor-pointer font-extrabold"
+            >
+              Retry
+            </button>
           </div>
         )}
 

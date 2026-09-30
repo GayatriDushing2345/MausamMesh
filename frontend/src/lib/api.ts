@@ -16,48 +16,115 @@ import {
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000/api/v1';
 
+// In-memory cache for ultra-fast tab switches and instant responses
+const memoryCache = new Map<string, { data: any; expiry: number }>();
+const CACHE_TTL_MS = 5 * 60 * 1000; // 5 minutes cache
+
+async function fetchWithCache<T>(url: string, ttlMs: number = CACHE_TTL_MS): Promise<T> {
+  // 1. Check in-memory cache (0ms)
+  const mem = memoryCache.get(url);
+  if (mem && Date.now() < mem.expiry) {
+    return mem.data as T;
+  }
+
+  // 2. Check sessionStorage (survives page refreshes, 1ms)
+  if (typeof window !== 'undefined') {
+    try {
+      const stored = sessionStorage.getItem(`mm_cache_${url}`);
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (Date.now() < parsed.expiry) {
+          memoryCache.set(url, parsed);
+          return parsed.data as T;
+        }
+      }
+    } catch (_) {}
+  }
+
+  // 3. Perform network fetch
+  const res = await fetch(url);
+  if (!res.ok) {
+    throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+  }
+  const data = await res.json();
+
+  // 4. Save to caches
+  const cacheItem = { data, expiry: Date.now() + ttlMs };
+  memoryCache.set(url, cacheItem);
+  if (typeof window !== 'undefined') {
+    try {
+      sessionStorage.setItem(`mm_cache_${url}`, JSON.stringify(cacheItem));
+    } catch (_) {}
+  }
+
+  return data as T;
+}
+
 export async function fetchLocations(): Promise<LocationHierarchy> {
+  // Locations are static geographic hierarchy - cache for 2 hours in localStorage
+  const cacheKey = 'mm_locations_cache_v1';
+  if (typeof window !== 'undefined') {
+    try {
+      const cached = localStorage.getItem(cacheKey);
+      if (cached) {
+        const parsed = JSON.parse(cached);
+        if (Date.now() < parsed.expiry && parsed.data?.states?.length > 0) {
+          // Return cached instantly, revalidate silently in background
+          fetch(`${API_BASE}/locations`).then(async res => {
+            if (res.ok) {
+              const fresh = await res.json();
+              localStorage.setItem(cacheKey, JSON.stringify({ data: fresh, expiry: Date.now() + 2 * 60 * 60 * 1000 }));
+            }
+          }).catch(() => {});
+          return parsed.data;
+        }
+      }
+    } catch (_) {}
+  }
+
   const res = await fetch(`${API_BASE}/locations`);
   if (!res.ok) throw new Error('Failed to fetch location hierarchy');
-  return res.json();
+  const data = await res.json();
+
+  if (typeof window !== 'undefined') {
+    try {
+      localStorage.setItem(cacheKey, JSON.stringify({ data, expiry: Date.now() + 2 * 60 * 60 * 1000 }));
+    } catch (_) {}
+  }
+  return data;
 }
 
 export async function fetchPanchayatForecast(panchayatId: string): Promise<PanchayatForecastResponse> {
-  const res = await fetch(`${API_BASE}/panchayats/${panchayatId}/forecast`);
-  if (!res.ok) throw new Error(`Failed to fetch forecast for ${panchayatId}`);
-  return res.json();
+  return fetchWithCache<PanchayatForecastResponse>(`${API_BASE}/panchayats/${panchayatId}/forecast`);
 }
 
 export async function fetchPanchayatMap(panchayatId: string): Promise<MapGeoJSONResponse> {
-  const res = await fetch(`${API_BASE}/panchayats/${panchayatId}/map`);
-  if (!res.ok) throw new Error(`Failed to fetch map data for ${panchayatId}`);
-  return res.json();
+  return fetchWithCache<MapGeoJSONResponse>(`${API_BASE}/panchayats/${panchayatId}/map`);
 }
 
 export async function fetchPanchayatComparison(panchayatId: string): Promise<ComparisonResponse> {
-  const res = await fetch(`${API_BASE}/panchayats/${panchayatId}/compare`);
-  if (!res.ok) throw new Error(`Failed to fetch baseline vs model comparison for ${panchayatId}`);
-  return res.json();
+  return fetchWithCache<ComparisonResponse>(`${API_BASE}/panchayats/${panchayatId}/compare`);
 }
 
 export async function fetchPanchayatReliability(panchayatId: string): Promise<ModelReliabilityResponse> {
-  const res = await fetch(`${API_BASE}/panchayats/${panchayatId}/reliability`);
-  if (!res.ok) throw new Error(`Failed to fetch reliability metrics for ${panchayatId}`);
-  return res.json();
+  return fetchWithCache<ModelReliabilityResponse>(`${API_BASE}/panchayats/${panchayatId}/reliability`);
 }
 
 export async function fetchAdvisory(panchayatId: string, cropName: string, growthStage: string): Promise<AdvisoryResponse> {
-  const res = await fetch(`${API_BASE}/advisory`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      panchayat_id: panchayatId,
-      crop_name: cropName,
-      growth_stage: growthStage
-    })
+  const url = `${API_BASE}/advisory?p=${panchayatId}&c=${encodeURIComponent(cropName)}&s=${encodeURIComponent(growthStage)}`;
+  return fetchWithCache<AdvisoryResponse>(url, 3 * 60 * 1000).catch(async () => {
+    const res = await fetch(`${API_BASE}/advisory`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        panchayat_id: panchayatId,
+        crop_name: cropName,
+        growth_stage: growthStage
+      })
+    });
+    if (!res.ok) throw new Error('Failed to generate agro-advisory');
+    return res.json();
   });
-  if (!res.ok) throw new Error('Failed to generate agro-advisory');
-  return res.json();
 }
 
 export async function approveAdvisoryByDAMUOfficer(
